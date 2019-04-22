@@ -2,6 +2,7 @@ package controller;
 
 import calls.ZulipRestAPICall;
 import calls.messages.GetMessageEditHistory;
+import calls.messages.PostMarkAllAsRead;
 import calls.messages.PostMessage;
 import calls.messages.PostRenderMessage;
 import calls.settings.GetAllCustomEmoji;
@@ -26,7 +27,7 @@ public class ZulipRestExecutor {
 		ZulipRestExecutor z = new ZulipRestExecutor("Cookie-bot@zulip.taliox.io", "huAL10ED8dOz1CfqIHxVDVyCo2Ursjiw", "https://zulip.taliox.io/");
 		
 		
-		System.out.println(z.executeCall(new GetAllCustomEmoji()));
+		System.out.println(z.executeCall(new PostMarkAllAsRead()));
 	}
 	
 }

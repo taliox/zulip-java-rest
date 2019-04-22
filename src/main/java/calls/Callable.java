@@ -1,6 +1,6 @@
 package calls;
 
-public interface Callable {
+public abstract interface Callable {
 	
 	public String execute();
 
