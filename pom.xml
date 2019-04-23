@@ -14,6 +14,14 @@
 			<scope>provided</scope>
 		</dependency>
 
+		<!-- https://mvnrepository.com/artifact/commons-fileupload/commons-fileupload -->
+		<dependency>
+			<groupId>org.apache.httpcomponents</groupId>
+			<artifactId>httpmime</artifactId>
+			<version>4.4.1</version>
+		</dependency>
+
+
 	</dependencies>
 
 	<properties>
@@ -23,5 +31,6 @@
 
 	<organization>
 		<name>io.taliox</name>
+		<url>taliox.io</url>
 	</organization>
 </project>
