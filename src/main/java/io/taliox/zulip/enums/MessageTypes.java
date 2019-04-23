@@ -1,13 +1,13 @@
 package io.taliox.zulip.enums;
 
-public enum PostMessageTypes {
+public enum MessageTypes {
 	
 	STREAM("stream"),
 	PRIVATE("private");
 	
 	private String typeName;
 	
-	PostMessageTypes(final String type) {
+	MessageTypes(final String type) {
 		this.typeName = type;
 	}
 	

@@ -1,16 +1,11 @@
 package io.taliox.zulip;
 
-
-import java.io.File;
-
 import io.taliox.zulip.calls.ZulipRestAPICall;
-import io.taliox.zulip.calls.messages.PostMarkAllAsRead;
-import io.taliox.zulip.calls.messages.PostUploadFile;
-import io.taliox.zulip.calls.messages.UpdateMessageFlags;
-import io.taliox.zulip.calls.streams.GetAllTopicsOfAStream;
+import io.taliox.zulip.calls.settings.PostCustomEmoji;
+import io.taliox.zulip.calls.settings.PostLinkifier;
+import io.taliox.zulip.calls.streams.PatchTopicMuting;
 import io.taliox.zulip.controller.HttpController;
-import io.taliox.zulip.enums.MessageFlagTypes;
-import io.taliox.zulip.enums.MessageOpTypes;
+import io.taliox.zulip.enums.MessageFlagsOpTypes;
 
 public class ZulipRestExecutor {
 
@@ -25,10 +20,10 @@ public class ZulipRestExecutor {
 		return call.execute();
 	}
 	
+	//todo json encoding posttyping, message flags
 	public static void main(String[] args) {
-		ZulipRestExecutor z = new ZulipRestExecutor("Cookie-bot@zulip.taliox.io", "huAL10ED8dOz1CfqIHxVDVyCo2Ursjiw", "https://zulip.taliox.io/");
-	
-		System.out.println(z.executeCall(new PostUploadFile(new File("pom.xml"))));
+		ZulipRestExecutor z = new ZulipRestExecutor("Cookie-bot@zulip.taliox.io", "huAL10ED8dOz1CfqIHxVDVyCo2Ursjiw", "https://zulip.taliox.io/");	
+		System.out.println(z.executeCall(new PatchTopicMuting("watercooler", "hello", MessageFlagsOpTypes.add)));
 	}
 	
 }

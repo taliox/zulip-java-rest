@@ -3,25 +3,25 @@ package io.taliox.zulip.calls.messages;
 import org.apache.http.client.methods.HttpPost;
 
 import io.taliox.zulip.calls.ZulipRestAPICall;
-import io.taliox.zulip.enums.PostMessageTypes;
+import io.taliox.zulip.enums.MessageTypes;
 
 public class PostMessage extends ZulipRestAPICall {
 	
-	private PostMessageTypes type;
+	private MessageTypes type;
 	private String to;
 	private String subject;
 	private String content;
 	
 	public PostMessage(String toEmail, String content) {
 		setZulipAPIUrl("/api/v1/messages");		
-		this.type = PostMessageTypes.PRIVATE;
+		this.type = MessageTypes.PRIVATE;
 		this.to = toEmail;
 		this.content = content;
 	}
 	
 	public PostMessage(String toStream, String topic, String content) {
 		setZulipAPIUrl("/api/v1/messages");		
-		type = PostMessageTypes.STREAM;
+		type = MessageTypes.STREAM;
 		this.to = toStream;
 		this.subject = topic;
 		this.content = content;
@@ -30,7 +30,7 @@ public class PostMessage extends ZulipRestAPICall {
 	public String execute() {
 		HttpPost post = new HttpPost(this.httpController.getServer() + getZulipAPIUrl());
 		
-		if(type == PostMessageTypes.PRIVATE) {
+		if(type == MessageTypes.PRIVATE) {
 			getParameters().put("type", type.toString());
 			getParameters().put("to", this.to);
 			getParameters().put("content", this.content);

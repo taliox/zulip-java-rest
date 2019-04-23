@@ -6,15 +6,15 @@ import org.apache.http.client.methods.HttpPost;
 
 import io.taliox.zulip.calls.ZulipRestAPICall;
 import io.taliox.zulip.enums.MessageFlagTypes;
-import io.taliox.zulip.enums.MessageOpTypes;
+import io.taliox.zulip.enums.MessageFlagsOpTypes;
 
-public class UpdateMessageFlags extends ZulipRestAPICall {
+public class PostMessageFlags extends ZulipRestAPICall {
 
 	private String[] messages;
-	private MessageOpTypes op;
+	private MessageFlagsOpTypes op;
 	private MessageFlagTypes flag;
 
-	public UpdateMessageFlags(String[] messages, MessageOpTypes op, MessageFlagTypes flag) {
+	public PostMessageFlags(String[] messages, MessageFlagsOpTypes op, MessageFlagTypes flag) {
 		super();
 		setZulipAPIUrl("/api/v1/messages/flags");		
 		this.messages = messages;

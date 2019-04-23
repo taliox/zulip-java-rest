@@ -5,14 +5,14 @@ import org.apache.http.client.methods.HttpPatch;
 import io.taliox.zulip.calls.ZulipRestAPICall;
 import io.taliox.zulip.enums.UpdateMessageTypes;
 
-public class UpdateMessage extends ZulipRestAPICall {
+public class PatchUpdateMessage extends ZulipRestAPICall {
 
 	private String message_id;
 	private String subject;
 	private UpdateMessageTypes type = UpdateMessageTypes.change_one;
 	private String content;
 
-	public UpdateMessage(String message_id) {
+	public PatchUpdateMessage(String message_id) {
 		setZulipAPIUrl("/api/v1/messages/" + message_id);		
 		this.message_id = message_id;
 	}
