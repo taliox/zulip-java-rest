@@ -6,22 +6,26 @@ import org.apache.http.client.methods.HttpPost;
 
 import io.taliox.zulip.calls.ZulipRestAPICall;
 
-// TODO: Auto-generated Javadoc
 /**
- * The Class PostUploadFile.
+ * <p>
+ * Upload a single file and get the corresponding URI.
+ * 
+ * @see <a href=
+ *      "https://zulipchat.com/api/upload-file">https://zulipchat.com/api/upload-file</a>
+ *
  */
 public class PostUploadFile extends ZulipRestAPICall {
 
-	/** The file path. */
+	/** The file path to be uploaded. */
 	private String filePath;
 	
-	/** The file. */
+	/** The file to be uploaded. */
 	private File file;
 
 	/**
 	 * Instantiates a new post upload file.
 	 *
-	 * @param filePath the file path
+	 * @param filePath The file to be uploaded.
 	 */
 	public PostUploadFile(String filePath) {
 		setZulipAPIUrl("/api/v1/user_uploads");
@@ -31,7 +35,7 @@ public class PostUploadFile extends ZulipRestAPICall {
 	/**
 	 * Instantiates a new post upload file.
 	 *
-	 * @param file the file
+	 * @param file The file path to be uploaded.
 	 */
 	public PostUploadFile(File file) {
 		setZulipAPIUrl("/api/v1/user_uploads");

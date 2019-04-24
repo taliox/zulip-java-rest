@@ -5,22 +5,26 @@ import org.apache.http.client.methods.HttpPost;
 import io.taliox.zulip.calls.ZulipRestAPICall;
 import io.taliox.zulip.enums.MessageTypes;
 
-// TODO: Auto-generated Javadoc
 /**
- * The Class PostMessage.
+ * <p>
+ * Send a stream or a private message.
+ * 
+ * @see <a href=
+ *      "https://zulipchat.com/api/send-message">https://zulipchat.com/api/send-message</a>
+ *
  */
 public class PostMessage extends ZulipRestAPICall {
 	
-	/** The type. */
+	/** The type of message to be sent. private for a private message and  stream for a stream message. Must be one of: private, stream. */
 	private MessageTypes type;
 	
-	/** The to. */
+	/** The destination stream, or a CSV/JSON-encoded list containing the usernames (emails) of the recipients. */
 	private String to;
 	
-	/** The subject. */
+	/** The topic of the message. Only required if type is stream, ignored otherwise. Maximum length of 60 characters. */
 	private String subject;
 	
-	/** The content. */
+	/** The content of the message. Maximum message size of 10000 bytes. */
 	private String content;
 	
 	/**
@@ -39,9 +43,9 @@ public class PostMessage extends ZulipRestAPICall {
 	/**
 	 * Instantiates a new post message.
 	 *
-	 * @param toStream the to stream
-	 * @param topic the topic
-	 * @param content the content
+	 * @param toStream The destination stream
+	 * @param topic The topic of the message. Only required if type is stream, ignored otherwise. Maximum length of 60 characters.
+	 * @param content The content of the message. Maximum message size of 10000 bytes. 
 	 */
 	public PostMessage(String toStream, String topic, String content) {
 		setZulipAPIUrl("/api/v1/messages");		

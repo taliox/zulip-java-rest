@@ -5,28 +5,33 @@ import org.apache.http.client.methods.HttpPatch;
 import io.taliox.zulip.calls.ZulipRestAPICall;
 import io.taliox.zulip.enums.UpdateMessageTypes;
 
-// TODO: Auto-generated Javadoc
+
 /**
- * The Class PatchUpdateMessage.
+ * <p>
+ * Edit/update the content or topic of a message.
+ * 
+ * @see <a href=
+ *      "https://zulipchat.com/api/update-message">https://zulipchat.com/api/update-message</a>
+ *
  */
 public class PatchUpdateMessage extends ZulipRestAPICall {
 
-	/** The message id. */
+	/** The ID of the message that you wish to edit/update. */
 	private String message_id;
 	
-	/** The subject. */
+	/** The topic of the message. Only required for stream messages. Maximum length of 60 characters. */
 	private String subject;
 	
-	/** The type. */
+	/** Which message(s) should be edited: just the one indicated in  message_id, messages in the same topic that had been sent after this one, or all of them. Must be one of: change_one, change_later,  change_all. Defaults to "change_one". */
 	private UpdateMessageTypes type = UpdateMessageTypes.change_one;
 	
-	/** The content. */
+	/** The content of the message. Maximum message size of 10000 bytes. */
 	private String content;
 
 	/**
 	 * Instantiates a new patch update message.
 	 *
-	 * @param message_id the message id
+	 * @param message_id The ID of the message that you wish to edit/update.
 	 */
 	public PatchUpdateMessage(String message_id) {
 		setZulipAPIUrl("/api/v1/messages/" + message_id);		
