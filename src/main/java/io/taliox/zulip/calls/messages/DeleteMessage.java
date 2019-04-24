@@ -14,9 +14,8 @@ import io.taliox.zulip.calls.ZulipRestAPICall;
  */
 public class DeleteMessage extends ZulipRestAPICall {
 
-	/**
-	 * The ID of the message to delete.
-	 */
+
+	/** The message id. */
 	private String message_id;
 
 	/**
