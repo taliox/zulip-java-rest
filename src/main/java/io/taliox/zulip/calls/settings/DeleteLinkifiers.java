@@ -18,4 +18,14 @@ public class DeleteLinkifiers extends ZulipRestAPICall {
 		getParameters().put("filter_id", this.filter_id);
 		return performRequest(getParameters(), delete);
 	}
+
+	public String getFilter_id() {
+		return filter_id;
+	}
+
+	public void setFilter_id(String filter_id) {
+		this.filter_id = filter_id;
+	}
+	
+	
 }

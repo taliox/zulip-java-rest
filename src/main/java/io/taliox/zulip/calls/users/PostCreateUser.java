@@ -27,4 +27,37 @@ public class PostCreateUser extends ZulipRestAPICall {
 		getParameters().put("short_name", this.short_name);
 		return performRequest(getParameters(), post);
 	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	public String getFull_name() {
+		return full_name;
+	}
+
+	public void setFull_name(String full_name) {
+		this.full_name = full_name;
+	}
+
+	public String getShort_name() {
+		return short_name;
+	}
+
+	public void setShort_name(String short_name) {
+		this.short_name = short_name;
+	}
+		
 }

@@ -14,4 +14,5 @@ public class PostMarkAllAsRead extends ZulipRestAPICall {
 		HttpPost post = new HttpPost(this.httpController.getServer() + getZulipAPIUrl());
 		return performRequest(getParameters(), post);
 	}
+	
 }

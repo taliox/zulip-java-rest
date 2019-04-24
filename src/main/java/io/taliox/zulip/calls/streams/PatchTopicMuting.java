@@ -25,4 +25,29 @@ public class PatchTopicMuting extends ZulipRestAPICall {
 		getParameters().put("op", op.toString());
 		return performRequest(getParameters(), patch);
 	}
+
+	public String getStream() {
+		return stream;
+	}
+
+	public void setStream(String stream) {
+		this.stream = stream;
+	}
+
+	public String getTopic() {
+		return topic;
+	}
+
+	public void setTopic(String topic) {
+		this.topic = topic;
+	}
+
+	public MessageFlagsOpTypes getOp() {
+		return op;
+	}
+
+	public void setOp(MessageFlagsOpTypes op) {
+		this.op = op;
+	}
+		
 }

@@ -25,4 +25,37 @@ public class PatchUpdateMessage extends ZulipRestAPICall {
 		getParameters().put("content", content);
 		return performRequest(getParameters(), patch);
 	}
+
+	public String getMessage_id() {
+		return message_id;
+	}
+
+	public void setMessage_id(String message_id) {
+		this.message_id = message_id;
+	}
+
+	public String getSubject() {
+		return subject;
+	}
+
+	public void setSubject(String subject) {
+		this.subject = subject;
+	}
+
+	public UpdateMessageTypes getType() {
+		return type;
+	}
+
+	public void setType(UpdateMessageTypes type) {
+		this.type = type;
+	}
+
+	public String getContent() {
+		return content;
+	}
+
+	public void setContent(String content) {
+		this.content = content;
+	}
+	
 }

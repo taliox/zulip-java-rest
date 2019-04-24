@@ -18,4 +18,13 @@ public class GetAllUsers extends ZulipRestAPICall {
 		getParameters().put("stream", Boolean.toString(client_gravatar));
 		return performRequest(getParameters(), get);
 	}
+
+	public boolean isClient_gravatar() {
+		return client_gravatar;
+	}
+
+	public void setClient_gravatar(boolean client_gravatar) {
+		this.client_gravatar = client_gravatar;
+	}
+		
 }

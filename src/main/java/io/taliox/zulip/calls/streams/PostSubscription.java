@@ -69,5 +69,4 @@ public class PostSubscription extends ZulipRestAPICall {
 		this.authorization_errors_fatal = authorization_errors_fatal;
 	}
 	
-	
 }

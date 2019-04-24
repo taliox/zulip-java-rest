@@ -21,4 +21,22 @@ public class PostLinkifier extends ZulipRestAPICall {
 		getParameters().put("url_format_string", this.url_format_string);
 		return performRequest(getParameters(), post);
 	}
+
+	public String getPattern() {
+		return pattern;
+	}
+
+	public void setPattern(String pattern) {
+		this.pattern = pattern;
+	}
+
+	public String getUrl_format_string() {
+		return url_format_string;
+	}
+
+	public void setUrl_format_string(String url_format_string) {
+		this.url_format_string = url_format_string;
+	}
+	
+	
 }

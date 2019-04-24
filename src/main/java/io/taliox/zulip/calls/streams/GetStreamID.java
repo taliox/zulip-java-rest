@@ -20,4 +20,13 @@ public class GetStreamID extends ZulipRestAPICall {
 		return performRequest(getParameters(), get);
 
 	}
+
+	public String getStream_name() {
+		return stream_name;
+	}
+
+	public void setStream_name(String stream_name) {
+		this.stream_name = stream_name;
+	}
+	
 }

@@ -27,5 +27,30 @@ public class PostMessageFlags extends ZulipRestAPICall {
 		getParameters().put("flag", flag.toString());
 		return performRequest(getParameters(), post);
 	}
+
+	public String getMessages() {
+		return messages;
+	}
+
+	public void setMessages(String messages) {
+		this.messages = messages;
+	}
+
+	public MessageFlagsOpTypes getOp() {
+		return op;
+	}
+
+	public void setOp(MessageFlagsOpTypes op) {
+		this.op = op;
+	}
+
+	public MessageFlagTypes getFlag() {
+		return flag;
+	}
+
+	public void setFlag(MessageFlagTypes flag) {
+		this.flag = flag;
+	}
+	
 }
 

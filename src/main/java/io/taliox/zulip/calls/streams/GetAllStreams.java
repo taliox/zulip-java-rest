@@ -26,4 +26,44 @@ public class GetAllStreams extends ZulipRestAPICall {
 		return performRequest(getParameters(), get);
 	}
 
+	public boolean isInclude_public() {
+		return include_public;
+	}
+
+	public void setInclude_public(boolean include_public) {
+		this.include_public = include_public;
+	}
+
+	public boolean isInclude_subscribed() {
+		return include_subscribed;
+	}
+
+	public void setInclude_subscribed(boolean include_subscribed) {
+		this.include_subscribed = include_subscribed;
+	}
+
+	public boolean isInclude_all_active() {
+		return include_all_active;
+	}
+
+	public void setInclude_all_active(boolean include_all_active) {
+		this.include_all_active = include_all_active;
+	}
+
+	public boolean isInclude_default() {
+		return include_default;
+	}
+
+	public void setInclude_default(boolean include_default) {
+		this.include_default = include_default;
+	}
+
+	public boolean isInclude_owner_subscribed() {
+		return include_owner_subscribed;
+	}
+
+	public void setInclude_owner_subscribed(boolean include_owner_subscribed) {
+		this.include_owner_subscribed = include_owner_subscribed;
+	}
+	
 }

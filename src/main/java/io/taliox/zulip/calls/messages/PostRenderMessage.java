@@ -18,5 +18,14 @@ public class PostRenderMessage extends ZulipRestAPICall {
 		getParameters().put("content", this.content);
 		return performRequest(getParameters(), post);
 	}
+
+	public String getContent() {
+		return content;
+	}
+
+	public void setContent(String content) {
+		this.content = content;
+	}
+	
 }
 

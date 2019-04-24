@@ -26,25 +26,56 @@ import io.taliox.zulip.exceptions.NotAuthroizedException;
 
 public abstract class ZulipRestAPICall implements Callable {
 
+	/** The http controller. */
 	public HttpController httpController;
+	
+	/** The zulip API url. */
 	private String zulipAPIUrl;
+	
+	/** The builder. */
 	private StringBuilder builder;
+	
+	/** The parameters. */
 	private HashMap<String, String> parameters;
 
+	/**
+	 * The abstract constructor for a ZulipRestAPICall.
+	 */
 	public ZulipRestAPICall() {
 		builder = new StringBuilder();
 		parameters = new HashMap<String, String>();
 	}
-	
+
+	/**
+	 * Perform upload request.
+	 *
+	 * @param file the file
+	 * @param post the post
+	 * @return the string
+	 */
 	public String performUploadRequest(File file, HttpPost post) {
 		return handleHttpUpload(file, post);
 	}
 
+	/**
+	 * Perform upload request.
+	 *
+	 * @param filePath the file path
+	 * @param post the post
+	 * @return the string
+	 */
 	public String performUploadRequest(String filePath, HttpPost post) {
 		File toUpload = new File(filePath);
 		return handleHttpUpload(toUpload, post);
 	}
 
+	/**
+	 * Perform request.
+	 *
+	 * @param parameters the parameters
+	 * @param base the base
+	 * @return the string
+	 */
 	public String performRequest(HashMap<String, String> parameters, HttpRequestBase base) {
 		URI uri = null;
 
@@ -65,7 +96,6 @@ public abstract class ZulipRestAPICall implements Callable {
 		} catch (URISyntaxException e1) {
 			e1.printStackTrace();
 		} catch (InvalidArgumentException e1) {
-			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
 
@@ -98,6 +128,13 @@ public abstract class ZulipRestAPICall implements Callable {
 		return builder.toString();
 	}
 
+	/**
+	 * Handle http upload.
+	 *
+	 * @param file the file to upload.
+	 * @param post the post object
+	 * @return the string
+	 */
 	private String handleHttpUpload(File file, HttpPost post) {
 		HttpClient client = getHttpController().getClient();
 		MultipartEntityBuilder multipartBuilder = MultipartEntityBuilder.create();
@@ -134,26 +171,56 @@ public abstract class ZulipRestAPICall implements Callable {
 		return builder.toString();
 	}
 
+	/**
+	 * Gets the http controller.
+	 *
+	 * @return the http controller
+	 */
 	public HttpController getHttpController() {
 		return httpController;
 	}
-	
+
+	/**
+	 * Sets the http controller.
+	 *
+	 * @param httpController the new http controller
+	 */
 	public void setHttpController(HttpController httpController) {
 		this.httpController = httpController;
 	}
 
+	/**
+	 * Gets the zulip API url.
+	 *
+	 * @return the zulip API url
+	 */
 	public String getZulipAPIUrl() {
 		return zulipAPIUrl;
 	}
 
+	/**
+	 * Sets the zulip API url.
+	 *
+	 * @param zulipAPIUrl the new zulip API url
+	 */
 	public void setZulipAPIUrl(String zulipAPIUrl) {
 		this.zulipAPIUrl = zulipAPIUrl;
 	}
 
+	/**
+	 * Gets the parameters.
+	 *
+	 * @return the parameters
+	 */
 	public HashMap<String, String> getParameters() {
 		return parameters;
 	}
 
+	/**
+	 * Sets the parameters.
+	 *
+	 * @param parameters the parameters
+	 */
 	public void setParameters(HashMap<String, String> parameters) {
 		this.parameters = parameters;
 	}

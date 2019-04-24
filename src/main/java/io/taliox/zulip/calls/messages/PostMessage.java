@@ -44,4 +44,37 @@ public class PostMessage extends ZulipRestAPICall {
 		
 		return performRequest(getParameters(), post);
 	}
+
+	public MessageTypes getType() {
+		return type;
+	}
+
+	public void setType(MessageTypes type) {
+		this.type = type;
+	}
+
+	public String getTo() {
+		return to;
+	}
+
+	public void setTo(String to) {
+		this.to = to;
+	}
+
+	public String getSubject() {
+		return subject;
+	}
+
+	public void setSubject(String subject) {
+		this.subject = subject;
+	}
+
+	public String getContent() {
+		return content;
+	}
+
+	public void setContent(String content) {
+		this.content = content;
+	}
+	
 }

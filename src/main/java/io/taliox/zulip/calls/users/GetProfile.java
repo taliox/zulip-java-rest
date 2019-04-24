@@ -15,4 +15,5 @@ public class GetProfile extends ZulipRestAPICall {
 		HttpGet get = new HttpGet(this.httpController.getServer() + getZulipAPIUrl());
 		return performRequest(getParameters(), get);
 	}
+		
 }

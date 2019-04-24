@@ -51,4 +51,21 @@ public class PostCustomEmoji extends ZulipRestAPICall {
 			return performUploadRequest(file, post);
 		}
 	}
+
+	public String getFilePath() {
+		return filePath;
+	}
+
+	public void setFilePath(String filePath) {
+		this.filePath = filePath;
+	}
+
+	public File getFile() {
+		return file;
+	}
+
+	public void setFile(File file) {
+		this.file = file;
+	}
+	
 }

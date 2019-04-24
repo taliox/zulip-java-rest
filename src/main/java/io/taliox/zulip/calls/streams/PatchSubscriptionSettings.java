@@ -18,4 +18,13 @@ public class PatchSubscriptionSettings extends ZulipRestAPICall {
 		getParameters().put("subscription_data", subscription_data);
 		return performRequest(getParameters(), patch);
 	}
+
+	public String getSubscription_data() {
+		return subscription_data;
+	}
+
+	public void setSubscription_data(String subscription_data) {
+		this.subscription_data = subscription_data;
+	}
+		
 }
