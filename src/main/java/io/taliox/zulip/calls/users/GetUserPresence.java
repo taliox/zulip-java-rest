@@ -6,7 +6,7 @@ import io.taliox.zulip.calls.ZulipRestAPICall;
 
 public class GetUserPresence extends ZulipRestAPICall {
 
-	private String email = "";
+	private String email;
 
 	public GetUserPresence(String email) {
 		super();

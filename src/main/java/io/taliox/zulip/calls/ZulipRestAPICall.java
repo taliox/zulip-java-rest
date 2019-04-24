@@ -137,7 +137,7 @@ public abstract class ZulipRestAPICall implements Callable {
 	public HttpController getHttpController() {
 		return httpController;
 	}
-
+	
 	public void setHttpController(HttpController httpController) {
 		this.httpController = httpController;
 	}
