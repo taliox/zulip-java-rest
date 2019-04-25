@@ -1,9 +1,11 @@
 # zulip-js
 A thin and easy to use Java library to access the [Zulip API](https://zulipchat.com/api/).
-This library covers every API call of the Zulip API except for real-time events.
+This library covers every API call of the Zulip API except for real-time events but is in it's core really simple.
 # How to use
-## Setup
+## Setup and usage
 ### Maven
+Just add the following dependency to your pom.xml or the JAR of this repository to your projects build path.
+
 ```maven
 <dependency>
 	<groupId>javax.activation</groupId>
@@ -11,50 +13,22 @@ This library covers every API call of the Zulip API except for real-time events.
 	<version>1.1</version>
 </dependency>
 ```
-Just add this dependency to your pom.xml or the JAR of this repository to your projects build path.
+### Where do I get the API key for authentication?
+You can either use a bot or a user account to communicate with the API. To find out the needed token please see the official [Zulip documentation](https://zulipchat.com/api/api-keys).
 
-### Create the ZulipRestExecutor to communicate with the Zulip API
-You will need to first retrieve the API key by calling `zulip(config)` and then use the zulip object that it passes to `.then()`
+### At first Create the ZulipRestExecutor to communicate with the Zulip API
+The core of this library is the `ZulipRestExecutor` it is responsible for performing HTTP calls.
 
-```js
-const zulip = require('zulip-js');
-const config = {
-  username: process.env.ZULIP_USERNAME,
-  password: process.env.ZULIP_PASSWORD,
-  realm: process.env.ZULIP_REALM
-};
-
-//Fetch API Key
-zulip(config).then(zulip => {
-  // The zulip object now contains the API Key
-  zulip.streams.subscriptions().then(res => {
-    console.log(res);
-  });
-});
+```java
+ZulipRestExecutor executor = new ZulipRestExecutor("user@zulip.com", "apikey","https://zulip.example.com/");
 ```
 
-### With zuliprc
-Create a file called `zuliprc` (in the same directory as your code) which looks like:
-```
-[api]
-email=cordelia@zulip.com
-key=wlueAg7cQXqKpUgIaPP3dmF4vibZXal7
-site=http://localhost:9991
-```
+### How to use the ZulipRestExecutor?
+To perform an API call you should use the `executeCall(ZulipRestAPICall call)` method of the newly created object.
+All API calls are packed inside the library as instantiatable objects which then can be executed by the `ZulipRestExecutor`
 
-Please remember to add this file to your `.gitignore`!
-Calling `zulip({ zuliprc: 'zuliprc' } )` will read this file and then pass a configured zulip object to `.then()`.
+```java
 
-```js
-const zulip = require('zulip-js');
-const path = require('path');
-const zuliprc = path.resolve(__dirname, 'zuliprc');
-zulip({ zuliprc }).then(zulip => 
-  // The zulip object now contains the config from the zuliprc file
-  zulip.streams.subscriptions().then(res => {
-    console.log(res);
-  });
-});
 ```
 
 ## Examples
