@@ -2,6 +2,7 @@ package io.taliox.zulip.calls.streams;
 
 import org.apache.http.client.methods.HttpPatch;
 
+import io.taliox.zulip.ZulipRestExecutor;
 import io.taliox.zulip.calls.ZulipRestAPICall;
 
 /**
@@ -43,7 +44,8 @@ public class PatchSubscriptionSettings extends ZulipRestAPICall {
 	 * 
 	 * @see io.taliox.zulip.calls.Callable#execute()
 	 */
-	public String execute() {
+	public String execute(ZulipRestExecutor executor) {
+		setHttpController(executor.httpController);
 		HttpPatch patch = new HttpPatch(this.httpController.getServer() + getZulipAPIUrl());
 		getParameters().put("subscription_data", subscription_data);
 		return performRequest(getParameters(), patch);

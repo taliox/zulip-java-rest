@@ -2,6 +2,7 @@ package io.taliox.zulip.calls.messages;
 
 import org.apache.http.client.methods.HttpGet;
 
+import io.taliox.zulip.ZulipRestExecutor;
 import io.taliox.zulip.calls.ZulipRestAPICall;
 
 /**
@@ -38,7 +39,8 @@ public class GetMessageEditHistory extends ZulipRestAPICall {
 	 * 
 	 * @see io.taliox.zulip.calls.Callable#execute()
 	 */
-	public String execute() {
+	public String execute(ZulipRestExecutor executor) {
+		setHttpController(executor.httpController);
 		HttpGet get = new HttpGet(this.httpController.getServer() + getZulipAPIUrl());
 		getParameters().put("message_id", message_id);
 		return performRequest(getParameters(), get);

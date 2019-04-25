@@ -2,6 +2,7 @@ package io.taliox.zulip.calls.users;
 
 import org.apache.http.client.methods.HttpPost;
 
+import io.taliox.zulip.ZulipRestExecutor;
 import io.taliox.zulip.calls.ZulipRestAPICall;
 import io.taliox.zulip.enums.TypingStatusOpTypes;
 
@@ -56,7 +57,8 @@ public class PostTypingStatus extends ZulipRestAPICall {
 	 * 
 	 * @see io.taliox.zulip.calls.Callable#execute()
 	 */
-	public String execute() {
+	public String execute(ZulipRestExecutor executor) {
+		setHttpController(executor.httpController);
 		HttpPost post = new HttpPost(this.httpController.getServer() + getZulipAPIUrl());
 		getParameters().put("op", this.op.toString());
 		getParameters().put("to", notification_to);

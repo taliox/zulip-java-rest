@@ -2,6 +2,7 @@ package io.taliox.zulip.calls.messages;
 
 import org.apache.http.client.methods.HttpPost;
 
+import io.taliox.zulip.ZulipRestExecutor;
 import io.taliox.zulip.calls.ZulipRestAPICall;
 import io.taliox.zulip.enums.MessageFlagTypes;
 import io.taliox.zulip.enums.MessageFlagsOpTypes;
@@ -46,7 +47,8 @@ public class PostMessageFlags extends ZulipRestAPICall {
 	/* (non-Javadoc)
 	 * @see io.taliox.zulip.calls.Callable#execute()
 	 */
-	public String execute() {
+	public String execute(ZulipRestExecutor executor) {
+		setHttpController(executor.httpController);
 		HttpPost post = new HttpPost(this.httpController.getServer() + getZulipAPIUrl());
 		getParameters().put("messages", messages);
 		getParameters().put("op", op.toString());

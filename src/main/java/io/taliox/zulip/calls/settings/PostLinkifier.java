@@ -2,6 +2,7 @@ package io.taliox.zulip.calls.settings;
 
 import org.apache.http.client.methods.HttpPost;
 
+import io.taliox.zulip.ZulipRestExecutor;
 import io.taliox.zulip.calls.ZulipRestAPICall;
 
 /**
@@ -52,7 +53,8 @@ public class PostLinkifier extends ZulipRestAPICall {
 	 * 
 	 * @see io.taliox.zulip.calls.Callable#execute()
 	 */
-	public String execute() {
+	public String execute(ZulipRestExecutor executor) {
+		setHttpController(executor.httpController);
 		HttpPost post = new HttpPost(this.httpController.getServer() + getZulipAPIUrl());
 		getParameters().put("pattern", this.pattern);
 		getParameters().put("url_format_string", this.url_format_string);

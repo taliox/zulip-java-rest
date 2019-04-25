@@ -2,6 +2,7 @@ package io.taliox.zulip.calls.messages;
 
 import org.apache.http.client.methods.HttpDelete;
 
+import io.taliox.zulip.ZulipRestExecutor;
 import io.taliox.zulip.calls.ZulipRestAPICall;
 
 /**
@@ -38,7 +39,8 @@ public class DeleteMessage extends ZulipRestAPICall {
 	 * 
 	 * @see io.taliox.zulip.calls.Callable#execute()
 	 */
-	public String execute() {
+	public String execute(ZulipRestExecutor executor) {
+		setHttpController(executor.httpController);
 		HttpDelete delete = new HttpDelete(this.httpController.getServer() + getZulipAPIUrl());
 		getParameters().put("message_id", message_id);
 		return performRequest(getParameters(), delete);

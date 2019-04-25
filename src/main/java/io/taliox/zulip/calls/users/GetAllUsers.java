@@ -2,6 +2,7 @@ package io.taliox.zulip.calls.users;
 
 import org.apache.http.client.methods.HttpGet;
 
+import io.taliox.zulip.ZulipRestExecutor;
 import io.taliox.zulip.calls.ZulipRestAPICall;
 
 /**
@@ -27,7 +28,8 @@ public class GetAllUsers extends ZulipRestAPICall {
 	/* (non-Javadoc)
 	 * @see io.taliox.zulip.calls.Callable#execute()
 	 */
-	public String execute() {
+	public String execute(ZulipRestExecutor executor) {
+		setHttpController(executor.httpController);
 		HttpGet get = new HttpGet(this.httpController.getServer() + getZulipAPIUrl());
 		getParameters().put("stream", Boolean.toString(client_gravatar));
 		return performRequest(getParameters(), get);

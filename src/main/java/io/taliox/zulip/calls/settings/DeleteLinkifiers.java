@@ -2,6 +2,7 @@ package io.taliox.zulip.calls.settings;
 
 import org.apache.http.client.methods.HttpDelete;
 
+import io.taliox.zulip.ZulipRestExecutor;
 import io.taliox.zulip.calls.ZulipRestAPICall;
 
 /**
@@ -32,7 +33,8 @@ public class DeleteLinkifiers extends ZulipRestAPICall {
 	/* (non-Javadoc)
 	 * @see io.taliox.zulip.calls.Callable#execute()
 	 */
-	public String execute() {
+	public String execute(ZulipRestExecutor executor) {
+		setHttpController(executor.httpController);
 		HttpDelete delete = new HttpDelete(this.httpController.getServer() + getZulipAPIUrl());
 		getParameters().put("filter_id", this.filter_id);
 		return performRequest(getParameters(), delete);

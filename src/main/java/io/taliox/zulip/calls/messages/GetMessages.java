@@ -2,6 +2,7 @@ package io.taliox.zulip.calls.messages;
 
 import org.apache.http.client.methods.HttpGet;
 
+import io.taliox.zulip.ZulipRestExecutor;
 import io.taliox.zulip.calls.ZulipRestAPICall;
 
 /**
@@ -109,7 +110,8 @@ public class GetMessages extends ZulipRestAPICall {
 	 * 
 	 * @see io.taliox.zulip.calls.Callable#execute()
 	 */
-	public String execute() {
+	public String execute(ZulipRestExecutor executor) {
+		setHttpController(executor.httpController);
 		HttpGet get = new HttpGet(this.httpController.getServer() + getZulipAPIUrl());
 		getParameters().put("anchor", Integer.toString(anchor));
 		getParameters().put("use_first_unread_anchor", Boolean.toString(use_first_unread_anchor));

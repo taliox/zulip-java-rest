@@ -2,6 +2,7 @@ package io.taliox.zulip.calls.streams;
 
 import org.apache.http.client.methods.HttpPost;
 
+import io.taliox.zulip.ZulipRestExecutor;
 import io.taliox.zulip.calls.ZulipRestAPICall;
 
 /**
@@ -73,9 +74,9 @@ public class PostSubscription extends ZulipRestAPICall {
 	 * 
 	 * @see io.taliox.zulip.calls.Callable#execute()
 	 */
-	public String execute() {
+	public String execute(ZulipRestExecutor executor) {
+		setHttpController(executor.httpController);
 		HttpPost post = new HttpPost(this.httpController.getServer() + getZulipAPIUrl());
-
 		getParameters().put("subscriptions", subscriptions);
 		getParameters().put("invite_only", Boolean.toString(invite_only));
 		getParameters().put("announce", Boolean.toString(announce));

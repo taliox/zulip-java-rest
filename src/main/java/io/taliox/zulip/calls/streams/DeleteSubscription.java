@@ -2,6 +2,7 @@ package io.taliox.zulip.calls.streams;
 
 import org.apache.http.client.methods.HttpDelete;
 
+import io.taliox.zulip.ZulipRestExecutor;
 import io.taliox.zulip.calls.ZulipRestAPICall;
 
 /**
@@ -41,7 +42,8 @@ public class DeleteSubscription extends ZulipRestAPICall {
 	 * 
 	 * @see io.taliox.zulip.calls.Callable#execute()
 	 */
-	public String execute() {
+	public String execute(ZulipRestExecutor executor) {
+		setHttpController(executor.httpController);
 		HttpDelete delete = new HttpDelete(this.httpController.getServer() + getZulipAPIUrl());
 		getParameters().put("subscriptions", subscriptions);
 		if (principals != null) {
