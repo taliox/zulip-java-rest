@@ -1,12 +1,10 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>io.taliox</groupId>
 	<artifactId>zulip-java-rest</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.0.1</version>
 	<packaging>pom</packaging>
 
 
@@ -180,9 +178,9 @@
 
 	<scm>
 		<connection>scm:git:git://github.com/taliox/zulip-java-rest.git</connection>
-		<developerConnection>scm:git:git@github.com:dexecutor/taliox/zulip-java-rest.git</developerConnection>
+		<developerConnection>scm:git:git@github.com:taliox/taliox.git</developerConnection>
 		<url>https://github.com/taliox/zulip-java-rest</url>
-		<tag>HEAD</tag>
+		<tag>zulip-java-rest-0.0.1</tag>
 	</scm>
 
 	<developers>

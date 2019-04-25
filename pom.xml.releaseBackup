@@ -1,4 +1,6 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
 	<modelVersion>4.0.0</modelVersion>
 
@@ -175,16 +177,14 @@
 	<description>This project aims at providing a thin Java wrapper for the Zulip REST API.</description>
 	<url>https://github.com/taliox/zulip-java-rest</url>
 
+
 	<scm>
+		<connection>scm:git:git://github.com/taliox/zulip-java-rest.git</connection>
+		<developerConnection>scm:git:git@github.com:dexecutor/taliox/zulip-java-rest.git</developerConnection>
 		<url>https://github.com/taliox/zulip-java-rest</url>
-		<connection>
-            scm:git:git://github.com/taliox/zulip-java-rest.git
-        </connection>
-		<developerConnection>
-            scm:git:ssh://git@github.com:taliox/zulip-java-rest.git
-        </developerConnection>
-	  <tag>zulip-java-rest-0.0.1</tag>
-  </scm>
+		<tag>HEAD</tag>
+	</scm>
+
 	<developers>
 		<developer>
 			<name>raLaaa</name>
