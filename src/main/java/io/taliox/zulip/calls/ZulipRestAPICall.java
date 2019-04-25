@@ -23,7 +23,7 @@ import org.apache.http.entity.mime.content.FileBody;
 import io.taliox.zulip.controller.HttpController;
 import io.taliox.zulip.exceptions.BadRequestException;
 import io.taliox.zulip.exceptions.InvalidArgumentException;
-import io.taliox.zulip.exceptions.NotAuthroizedException;
+import io.taliox.zulip.exceptions.NotAuthorizedException;
 
 public abstract class ZulipRestAPICall implements Callable {
 
@@ -127,8 +127,8 @@ public abstract class ZulipRestAPICall implements Callable {
 			}
 
 			if (response.getStatusLine().getStatusCode() == HttpStatus.SC_UNAUTHORIZED) {
-				throw new NotAuthroizedException(
-						"Unauthroized request. Please check server settings and your provided credentials :"
+				throw new NotAuthorizedException(
+						"Unauthorized request. Please check server settings and your provided credentials :"
 								+ builder.toString());
 			}
 
@@ -142,7 +142,7 @@ public abstract class ZulipRestAPICall implements Callable {
 			e.printStackTrace();
 		} catch (IOException e) {
 			e.printStackTrace();
-		} catch (NotAuthroizedException e) {
+		} catch (NotAuthorizedException e) {
 			e.printStackTrace();
 		} catch (BadRequestException e) {
 			e.printStackTrace();
@@ -174,8 +174,8 @@ public abstract class ZulipRestAPICall implements Callable {
 			HttpResponse response = client.execute(post);
 
 			if (response.getStatusLine().getStatusCode() == HttpStatus.SC_UNAUTHORIZED) {
-				throw new NotAuthroizedException(
-						"Unauthroized request. Please check server settings and your provided credentials :"
+				throw new NotAuthorizedException(
+						"Unauthorized request. Please check server settings and your provided credentials :"
 								+ response.getStatusLine());
 			}
 
@@ -190,7 +190,7 @@ public abstract class ZulipRestAPICall implements Callable {
 			e.printStackTrace();
 		} catch (IOException e) {
 			e.printStackTrace();
-		} catch (NotAuthroizedException e) {
+		} catch (NotAuthorizedException e) {
 			e.printStackTrace();
 		}
 
