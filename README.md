@@ -53,10 +53,10 @@ String response = executor.executeCall(getAllUser);
 ### Get own profile
 ```java
 GetProfile getProfile = new GetProfile();
-String response = executor.executeCall(geProfile);
+String response = executor.executeCall(getProfile);
 ```
 
-### Get own profile
+### Get all streams
 ```java
 GetAllStreams getAllStreams = new GetAllStreams();
 String response = executor.executeCall(getAllStreams);
@@ -105,7 +105,14 @@ String response = executor.executeCall(patchMessage);
 ```
 
 Please always refer to [official Zulip API documentation](https://zulipchat.com/api/) in case you are not sure what structure the parameters of an call object need to be.
-A full list of API calls, return types and parameters can be found there.
+A full list of API calls, return types and parameters to perform calls can be found there.
 
-## Collaboration
+## Contributing
+Thanks for your interest! Do not hesitate to open an issue if you have a question, feedback or found something that`s not supposed to be working like it shoud.
+Pull requests for improvements of the library are also highly appriciated.
+
+## Licenses
+Each pull request should contain relevant tests as well as example usage.
+
+## Disclaimer
 Each pull request should contain relevant tests as well as example usage.
