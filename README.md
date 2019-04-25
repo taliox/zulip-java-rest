@@ -110,6 +110,7 @@ A full list of API calls, return types and parameters to perform calls can be fo
 We are working on more examples and tests within the library so you can try it out right of the box.
 
 ## Contributing
+<<<<<<< HEAD
 Thanks for your interest! Do not hesitate to open an issue if you have a question, feedback or found something that`s not supposed to be working like it should.
 Pull requests for improvements of the library are also highly appriciated.
 
