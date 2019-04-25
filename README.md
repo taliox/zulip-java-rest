@@ -9,7 +9,7 @@ Just add the following dependency to your pom.xml or the JAR of this repository 
 ```maven
 <dependency>
 	<groupId>io.taliox</groupId>
-	<artifactId>activation</artifactId>
+	<artifactId>zulip-java-rest</artifactId>
 	<version>1.0</version>
 </dependency>
 ```
