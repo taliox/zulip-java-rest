@@ -73,6 +73,9 @@ local.properties
 # Annotation Processing
 .apt_generated/
 
+# Settings
+/.settings
+
 # Scala IDE specific (Scala & Java development for Eclipse)
 .cache-main
 .scala_dependencies
