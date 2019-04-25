@@ -43,5 +43,5 @@
 	</organization>
 	<name>Zulip Java  REST API</name>
 	<description>This project aims at providing a thin Java wrapper for the Zulip REST API.</description>
-	<url>taliox.io</url>
+	<url>https://github.com/taliox/zulip-java-rest</url>
 </project>
