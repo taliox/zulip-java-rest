@@ -14,15 +14,17 @@ import io.taliox.zulip.calls.ZulipRestAPICall;
  *
  */
 public class PostMarkAllAsRead extends ZulipRestAPICall {
-	
+
 	/**
 	 * Instantiates a new post mark all as read.
 	 */
 	public PostMarkAllAsRead() {
-		setZulipAPIUrl("/api/v1/mark_all_as_read");		
+		setZulipAPIUrl("/api/v1/mark_all_as_read");
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see io.taliox.zulip.calls.Callable#execute()
 	 */
 	public String execute(ZulipRestExecutor executor) {
@@ -30,5 +32,5 @@ public class PostMarkAllAsRead extends ZulipRestAPICall {
 		HttpPost post = new HttpPost(this.httpController.getServer() + getZulipAPIUrl());
 		return performRequest(getParameters(), post);
 	}
-	
+
 }

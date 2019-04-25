@@ -9,7 +9,8 @@ import io.taliox.zulip.calls.ZulipRestAPICall;
  * <p>
  * Get the raw content of a message. This is a rarely-used endpoint relevant for
  * clients that primarily work with HTML-rendered messages but might need to
- * occasionally fetch the message's raw markdown (e.g. for pre-filling message-editing UI).
+ * occasionally fetch the message's raw markdown (e.g. for pre-filling
+ * message-editing UI).
  * 
  * @see <a href=
  *      "https://zulipchat.com/api/get-raw-message">https://zulipchat.com/api/get-raw-message</a>
@@ -23,7 +24,8 @@ public class GetRawMessage extends ZulipRestAPICall {
 	/**
 	 * Instantiates a new gets the raw message.
 	 *
-	 * @param message_id The target message's ID.
+	 * @param message_id
+	 *            The target message's ID.
 	 */
 	public GetRawMessage(String message_id) {
 		setZulipAPIUrl("/api/v1/messages/" + message_id);

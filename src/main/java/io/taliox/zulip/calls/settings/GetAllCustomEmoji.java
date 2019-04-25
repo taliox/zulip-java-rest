@@ -22,7 +22,9 @@ public class GetAllCustomEmoji extends ZulipRestAPICall {
 		setZulipAPIUrl("/api/v1/realm/emoji");
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see io.taliox.zulip.calls.Callable#execute()
 	 */
 	public String execute(ZulipRestExecutor executor) {

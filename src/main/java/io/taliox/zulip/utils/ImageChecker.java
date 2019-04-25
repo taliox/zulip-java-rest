@@ -6,15 +6,16 @@ import java.io.IOException;
 import javax.imageio.ImageIO;
 
 /**
- * The Class ImageChecker is responsible for validating whether the file to uploaded is an image.
- * This is useful when performing the upload of an emoji. 
+ * The Class ImageChecker is responsible for validating whether the file to
+ * uploaded is an image. This is useful when performing the upload of an emoji.
  */
 public abstract class ImageChecker {
 
 	/**
 	 * Check if file is an image.
 	 *
-	 * @param path The path of the image to be uploaded.
+	 * @param path
+	 *            The path of the image to be uploaded.
 	 * @return true, if file is an image.
 	 * @return false, if file is not an image.
 	 */
@@ -32,7 +33,8 @@ public abstract class ImageChecker {
 	/**
 	 * Check if file is an image.
 	 *
-	 * @param file The File to be uploaded.
+	 * @param file
+	 *            The File to be uploaded.
 	 * @return true, if file is an image.
 	 * @return false, if file is not an image.
 	 */

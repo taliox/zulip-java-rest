@@ -25,7 +25,8 @@ import io.taliox.zulip.calls.ZulipRestAPICall;
  * responses. A maximum of 5000 messages can be obtained per request; attempting
  * to exceed this will result in an error.
  * 
- * @see <a href="https://zulipchat.com/api/get-messages">https://zulipchat.com/api/get-messages</a>
+ * @see <a href=
+ *      "https://zulipchat.com/api/get-messages">https://zulipchat.com/api/get-messages</a>
  *
  */
 public class GetMessages extends ZulipRestAPICall {

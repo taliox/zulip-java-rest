@@ -14,7 +14,10 @@ import io.taliox.zulip.calls.ZulipRestAPICall;
  */
 public class GetAllUsers extends ZulipRestAPICall {
 
-	/** The client_gravatar field is set to true if clients can compute their own gravatars. Defaults to false.*/
+	/**
+	 * The client_gravatar field is set to true if clients can compute their own
+	 * gravatars. Defaults to false.
+	 */
 	private boolean client_gravatar = false;
 
 	/**
@@ -25,7 +28,9 @@ public class GetAllUsers extends ZulipRestAPICall {
 		setZulipAPIUrl("/api/v1/users");
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see io.taliox.zulip.calls.Callable#execute()
 	 */
 	public String execute(ZulipRestExecutor executor) {
@@ -47,10 +52,11 @@ public class GetAllUsers extends ZulipRestAPICall {
 	/**
 	 * Sets the client gravatar.
 	 *
-	 * @param client_gravatar the new client gravatar
+	 * @param client_gravatar
+	 *            the new client gravatar
 	 */
 	public void setClient_gravatar(boolean client_gravatar) {
 		this.client_gravatar = client_gravatar;
 	}
-		
+
 }

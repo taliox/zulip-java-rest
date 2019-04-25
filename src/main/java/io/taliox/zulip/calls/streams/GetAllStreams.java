@@ -16,27 +16,35 @@ public class GetAllStreams extends ZulipRestAPICall {
 
 	/** Include all public streams. Defaults to true. */
 	private boolean include_public = true;
-	
-	/** Include all streams that the user is subscribed to. Defaults to  true. */
+
+	/** Include all streams that the user is subscribed to. Defaults to true. */
 	private boolean include_subscribed = true;
-	
-	/** Include all active streams. The user must have administrative privileges to use this parameter. Defaults to false. */
+
+	/**
+	 * Include all active streams. The user must have administrative privileges to
+	 * use this parameter. Defaults to false.
+	 */
 	private boolean include_all_active = false;
-	
-	/** Include all default streams for the user's realm. Defaults to  false. */
+
+	/** Include all default streams for the user's realm. Defaults to false. */
 	private boolean include_default = false;
-	
-	/** If the user is a bot, include all streams that the bot's owner is subscribed to. Defaults to false. */
+
+	/**
+	 * If the user is a bot, include all streams that the bot's owner is subscribed
+	 * to. Defaults to false.
+	 */
 	private boolean include_owner_subscribed = false;
-	
+
 	/**
 	 * Instantiates a new gets the all streams.
 	 */
 	public GetAllStreams() {
-		setZulipAPIUrl("/api/v1/streams");		
+		setZulipAPIUrl("/api/v1/streams");
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see io.taliox.zulip.calls.Callable#execute()
 	 */
 	public String execute(ZulipRestExecutor executor) {
@@ -62,7 +70,8 @@ public class GetAllStreams extends ZulipRestAPICall {
 	/**
 	 * Sets the include public.
 	 *
-	 * @param include_public the new include public
+	 * @param include_public
+	 *            the new include public
 	 */
 	public void setInclude_public(boolean include_public) {
 		this.include_public = include_public;
@@ -80,7 +89,8 @@ public class GetAllStreams extends ZulipRestAPICall {
 	/**
 	 * Sets the include subscribed.
 	 *
-	 * @param include_subscribed the new include subscribed
+	 * @param include_subscribed
+	 *            the new include subscribed
 	 */
 	public void setInclude_subscribed(boolean include_subscribed) {
 		this.include_subscribed = include_subscribed;
@@ -98,7 +108,8 @@ public class GetAllStreams extends ZulipRestAPICall {
 	/**
 	 * Sets the include all active.
 	 *
-	 * @param include_all_active the new include all active
+	 * @param include_all_active
+	 *            the new include all active
 	 */
 	public void setInclude_all_active(boolean include_all_active) {
 		this.include_all_active = include_all_active;
@@ -116,7 +127,8 @@ public class GetAllStreams extends ZulipRestAPICall {
 	/**
 	 * Sets the include default.
 	 *
-	 * @param include_default the new include default
+	 * @param include_default
+	 *            the new include default
 	 */
 	public void setInclude_default(boolean include_default) {
 		this.include_default = include_default;
@@ -134,10 +146,11 @@ public class GetAllStreams extends ZulipRestAPICall {
 	/**
 	 * Sets the include owner subscribed.
 	 *
-	 * @param include_owner_subscribed the new include owner subscribed
+	 * @param include_owner_subscribed
+	 *            the new include owner subscribed
 	 */
 	public void setInclude_owner_subscribed(boolean include_owner_subscribed) {
 		this.include_owner_subscribed = include_owner_subscribed;
 	}
-	
+
 }

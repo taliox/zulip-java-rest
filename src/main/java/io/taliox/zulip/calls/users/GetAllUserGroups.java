@@ -22,7 +22,9 @@ public class GetAllUserGroups extends ZulipRestAPICall {
 		setZulipAPIUrl("/api/v1/user_groups");
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see io.taliox.zulip.calls.Callable#execute()
 	 */
 	public String execute(ZulipRestExecutor executor) {
@@ -30,5 +32,5 @@ public class GetAllUserGroups extends ZulipRestAPICall {
 		HttpGet get = new HttpGet(this.httpController.getServer() + getZulipAPIUrl());
 		return performRequest(getParameters(), get);
 	}
-		
+
 }

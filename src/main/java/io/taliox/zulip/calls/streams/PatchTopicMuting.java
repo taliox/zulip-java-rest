@@ -20,10 +20,16 @@ public class PatchTopicMuting extends ZulipRestAPICall {
 	/** The name of the stream in which to mute the topic. */
 	private String stream;
 
-	/** The topic to (un)mute. Note that the request will succeed regardless of whether any messages have been sent to the specified topic. */
+	/**
+	 * The topic to (un)mute. Note that the request will succeed regardless of
+	 * whether any messages have been sent to the specified topic.
+	 */
 	private String topic;
 
-	/** Whether to mute (add) or unmute (remove) the provided topic. Must be one of: add, remove. */
+	/**
+	 * Whether to mute (add) or unmute (remove) the provided topic. Must be one of:
+	 * add, remove.
+	 */
 	private MessageFlagsOpTypes op;
 
 	/**
@@ -32,9 +38,12 @@ public class PatchTopicMuting extends ZulipRestAPICall {
 	 * @param stream
 	 *            The name of the stream in which to mute the topic.
 	 * @param topic
-	 *            The topic to (un)mute. Note that the request will succeed regardless of whether any messages have been sent to the specified topic.
+	 *            The topic to (un)mute. Note that the request will succeed
+	 *            regardless of whether any messages have been sent to the specified
+	 *            topic.
 	 * @param op
-	 *            Whether to mute (add) or unmute (remove) the provided topic. Must be one of: add, remove.
+	 *            Whether to mute (add) or unmute (remove) the provided topic. Must
+	 *            be one of: add, remove.
 	 */
 	public PatchTopicMuting(String stream, String topic, MessageFlagsOpTypes op) {
 		setZulipAPIUrl("/api/v1/users/me/subscriptions/muted_topics");

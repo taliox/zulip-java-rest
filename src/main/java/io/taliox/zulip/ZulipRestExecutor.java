@@ -1,9 +1,6 @@
 package io.taliox.zulip;
 
 import io.taliox.zulip.calls.ZulipRestAPICall;
-import io.taliox.zulip.calls.messages.PostMessage;
-import io.taliox.zulip.calls.settings.GetAllCustomEmoji;
-import io.taliox.zulip.calls.users.GetProfile;
 import io.taliox.zulip.controller.HttpController;
 
 /**
@@ -40,17 +37,5 @@ public class ZulipRestExecutor {
 	public String executeCall(ZulipRestAPICall call) {
 		return call.execute(this);
 	}
-
-	public static void main(String[] args) {
-		ZulipRestExecutor z = new ZulipRestExecutor("Cookie-bot@zulip.taliox.io", "huAL10ED8dOz1CfqIHxVDVyCo2Ursjiw",
-				"https://zulip.taliox.io/");
-
-		
-		PostMessage p = new PostMessage("marcel@taliox.io", "Na du");
-	
-		
-		System.out.println(z.executeCall(p));	
-	}
-
 	
 }

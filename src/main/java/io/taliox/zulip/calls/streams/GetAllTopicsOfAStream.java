@@ -13,22 +13,25 @@ import io.taliox.zulip.calls.ZulipRestAPICall;
  *      "https://zulipchat.com/api/get-stream-topics">https://zulipchat.com/api/get-stream-topics</a>
  */
 public class GetAllTopicsOfAStream extends ZulipRestAPICall {
-	
+
 	/** The unique ID of the stream. */
 	private String stream_id;
-	
+
 	/**
 	 * Instantiates a new gets the all topics of A stream.
 	 *
-	 * @param stream_id The unique ID of the stream.
+	 * @param stream_id
+	 *            The unique ID of the stream.
 	 */
 	public GetAllTopicsOfAStream(String stream_id) {
 		super();
 		this.stream_id = stream_id;
-		setZulipAPIUrl("/api/v1/users/me/"+stream_id+"/topics");		
+		setZulipAPIUrl("/api/v1/users/me/" + stream_id + "/topics");
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see io.taliox.zulip.calls.Callable#execute()
 	 */
 	public String execute(ZulipRestExecutor executor) {
@@ -50,12 +53,11 @@ public class GetAllTopicsOfAStream extends ZulipRestAPICall {
 	/**
 	 * Sets the stream id.
 	 *
-	 * @param stream_id the new stream id
+	 * @param stream_id
+	 *            the new stream id
 	 */
 	public void setStream_id(String stream_id) {
 		this.stream_id = stream_id;
 	}
 
-	
 }
-

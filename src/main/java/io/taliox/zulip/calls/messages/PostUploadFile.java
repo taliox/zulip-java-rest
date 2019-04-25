@@ -19,14 +19,15 @@ public class PostUploadFile extends ZulipRestAPICall {
 
 	/** The file path to be uploaded. */
 	private String filePath;
-	
+
 	/** The file to be uploaded. */
 	private File file;
 
 	/**
 	 * Instantiates a new post upload file.
 	 *
-	 * @param filePath The file to be uploaded.
+	 * @param filePath
+	 *            The file to be uploaded.
 	 */
 	public PostUploadFile(String filePath) {
 		setZulipAPIUrl("/api/v1/user_uploads");
@@ -36,23 +37,25 @@ public class PostUploadFile extends ZulipRestAPICall {
 	/**
 	 * Instantiates a new post upload file.
 	 *
-	 * @param file The file path to be uploaded.
+	 * @param file
+	 *            The file path to be uploaded.
 	 */
 	public PostUploadFile(File file) {
 		setZulipAPIUrl("/api/v1/user_uploads");
 		this.file = file;
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see io.taliox.zulip.calls.Callable#execute()
 	 */
 	public String execute(ZulipRestExecutor executor) {
 		setHttpController(executor.httpController);
-		HttpPost post = new HttpPost(this.httpController.getServer() + getZulipAPIUrl());		
-		if(file == null) {
+		HttpPost post = new HttpPost(this.httpController.getServer() + getZulipAPIUrl());
+		if (file == null) {
 			return performUploadRequest(filePath, post);
-		}
-		else {
+		} else {
 			return performUploadRequest(file, post);
 		}
 	}
@@ -69,7 +72,8 @@ public class PostUploadFile extends ZulipRestAPICall {
 	/**
 	 * Sets the file path which should be uploaded.
 	 *
-	 * @param filePath the new file path
+	 * @param filePath
+	 *            the new file path
 	 */
 	public void setFilePath(String filePath) {
 		this.filePath = filePath;
@@ -87,10 +91,11 @@ public class PostUploadFile extends ZulipRestAPICall {
 	/**
 	 * Sets the file which should be uploaded.
 	 *
-	 * @param file the new file
+	 * @param file
+	 *            the new file
 	 */
 	public void setFile(File file) {
 		this.file = file;
 	}
-	
+
 }

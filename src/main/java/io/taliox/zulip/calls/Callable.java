@@ -7,11 +7,12 @@ import io.taliox.zulip.ZulipRestExecutor;
  * These calls can be performed by the ZulipRestExecutor.
  */
 public abstract interface Callable {
-	
+
 	/**
 	 * Executes the call.
 	 * 
-	 * @param executor The instance which is responsible for executing the call.
+	 * @param executor
+	 *            The instance which is responsible for executing the call.
 	 *
 	 * @return The response of the Zulip server.
 	 */

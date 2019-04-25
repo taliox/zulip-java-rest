@@ -38,13 +38,13 @@ public class PostTypingStatus extends ZulipRestAPICall {
 	 * Instantiates a new post typing status.
 	 *
 	 * @param op
-	 *            Whether the user has started (start) or stopped (stop) to type. Must be one
-	 * 			  of: start, stop.
+	 *            Whether the user has started (start) or stopped (stop) to type.
+	 *            Must be one of: start, stop.
 	 * @param notification_to
-	 *            The recipients of the message being typed, in the same format used by the
-	 * 			  send_message API. Typing notifications are only supported for private
-	 * 			  messages, so this should be a JSON-encoded list of email addresses of the
-	 * 			  message's recipients.
+	 *            The recipients of the message being typed, in the same format used
+	 *            by the send_message API. Typing notifications are only supported
+	 *            for private messages, so this should be a JSON-encoded list of
+	 *            email addresses of the message's recipients.
 	 */
 	public PostTypingStatus(TypingStatusOpTypes op, String notification_to) {
 		setZulipAPIUrl("/api/v1/typing");

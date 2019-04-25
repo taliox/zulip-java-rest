@@ -21,7 +21,9 @@ public class GetSubscribedStreams extends ZulipRestAPICall {
 		setZulipAPIUrl("/api/v1/users/me/subscriptions");
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see io.taliox.zulip.calls.Callable#execute()
 	 */
 	public String execute(ZulipRestExecutor executor) {

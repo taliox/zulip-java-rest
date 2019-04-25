@@ -15,66 +15,83 @@ import io.taliox.zulip.enums.MessageTypes;
  *
  */
 public class PostMessage extends ZulipRestAPICall {
-	
-	/** The type of message to be sent. private for a private message and  stream for a stream message. Must be one of: private, stream. */
+
+	/**
+	 * The type of message to be sent. private for a private message and stream for
+	 * a stream message. Must be one of: private, stream.
+	 */
 	private MessageTypes type;
-	
-	/** The destination stream, or a CSV/JSON-encoded list containing the usernames (emails) of the recipients. */
+
+	/**
+	 * The destination stream, or a CSV/JSON-encoded list containing the usernames
+	 * (emails) of the recipients.
+	 */
 	private String to;
-	
-	/** The topic of the message. Only required if type is stream, ignored otherwise. Maximum length of 60 characters. */
+
+	/**
+	 * The topic of the message. Only required if type is stream, ignored otherwise.
+	 * Maximum length of 60 characters.
+	 */
 	private String subject;
-	
+
 	/** The content of the message. Maximum message size of 10000 bytes. */
 	private String content;
-	
+
 	/**
 	 * Instantiates a new post message.
 	 *
-	 * @param toEmail The to email or a CSV/JSON-encoded list containing the usernames (emails) of the recipients.
-	 * @param content The content of the message. Maximum message size of 10000 bytes. 
+	 * @param toEmail
+	 *            The to email or a CSV/JSON-encoded list containing the usernames
+	 *            (emails) of the recipients.
+	 * @param content
+	 *            The content of the message. Maximum message size of 10000 bytes.
 	 */
 	public PostMessage(String toEmail, String content) {
-		setZulipAPIUrl("/api/v1/messages");		
+		setZulipAPIUrl("/api/v1/messages");
 		this.type = MessageTypes.PRIVATE;
 		this.to = toEmail;
 		this.content = content;
 	}
-	
+
 	/**
 	 * Instantiates a new post message.
 	 *
-	 * @param toStream The destination stream
-	 * @param topic The topic of the message. Only required if type is stream, ignored otherwise. Maximum length of 60 characters.
-	 * @param content The content of the message. Maximum message size of 10000 bytes. 
+	 * @param toStream
+	 *            The destination stream
+	 * @param topic
+	 *            The topic of the message. Only required if type is stream, ignored
+	 *            otherwise. Maximum length of 60 characters.
+	 * @param content
+	 *            The content of the message. Maximum message size of 10000 bytes.
 	 */
 	public PostMessage(String toStream, String topic, String content) {
-		setZulipAPIUrl("/api/v1/messages");		
+		setZulipAPIUrl("/api/v1/messages");
 		type = MessageTypes.STREAM;
 		this.to = toStream;
 		this.subject = topic;
 		this.content = content;
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see io.taliox.zulip.calls.Callable#execute()
 	 */
 	public String execute(ZulipRestExecutor executor) {
 		setHttpController(executor.httpController);
 		HttpPost post = new HttpPost(this.httpController.getServer() + getZulipAPIUrl());
-		
-		if(type == MessageTypes.PRIVATE) {
+
+		if (type == MessageTypes.PRIVATE) {
 			getParameters().put("type", type.toString());
 			getParameters().put("to", this.to);
 			getParameters().put("content", this.content);
-		}
-		else {
+		} else {
 			getParameters().put("type", type.toString());
 			getParameters().put("to", this.to);
 			getParameters().put("subject", this.subject);
 			getParameters().put("content", this.content);
 		}
-		
+
 		return performRequest(getParameters(), post);
 	}
 
@@ -90,7 +107,8 @@ public class PostMessage extends ZulipRestAPICall {
 	/**
 	 * Sets the type.
 	 *
-	 * @param type the new type
+	 * @param type
+	 *            the new type
 	 */
 	public void setType(MessageTypes type) {
 		this.type = type;
@@ -108,7 +126,8 @@ public class PostMessage extends ZulipRestAPICall {
 	/**
 	 * Sets the to.
 	 *
-	 * @param to the new to
+	 * @param to
+	 *            the new to
 	 */
 	public void setTo(String to) {
 		this.to = to;
@@ -126,7 +145,8 @@ public class PostMessage extends ZulipRestAPICall {
 	/**
 	 * Sets the subject.
 	 *
-	 * @param subject the new subject
+	 * @param subject
+	 *            the new subject
 	 */
 	public void setSubject(String subject) {
 		this.subject = subject;
@@ -144,10 +164,11 @@ public class PostMessage extends ZulipRestAPICall {
 	/**
 	 * Sets the content.
 	 *
-	 * @param content the new content
+	 * @param content
+	 *            the new content
 	 */
 	public void setContent(String content) {
 		this.content = content;
 	}
-	
+
 }

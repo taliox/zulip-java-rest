@@ -14,21 +14,24 @@ import io.taliox.zulip.calls.ZulipRestAPICall;
  *
  */
 public class PostRenderMessage extends ZulipRestAPICall {
-	
+
 	/** The content of the message. */
 	private String content;
-	
+
 	/**
 	 * Instantiates a new post render message.
 	 *
-	 * @param content The content of the message.
+	 * @param content
+	 *            The content of the message.
 	 */
 	public PostRenderMessage(String content) {
-		setZulipAPIUrl("/api/v1/messages/render");		
+		setZulipAPIUrl("/api/v1/messages/render");
 		this.content = content;
 	}
-	
-	/* (non-Javadoc)
+
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see io.taliox.zulip.calls.Callable#execute()
 	 */
 	public String execute(ZulipRestExecutor executor) {
@@ -50,11 +53,11 @@ public class PostRenderMessage extends ZulipRestAPICall {
 	/**
 	 * Sets the content.
 	 *
-	 * @param content the new content
+	 * @param content
+	 *            the new content
 	 */
 	public void setContent(String content) {
 		this.content = content;
 	}
-	
-}
 
+}

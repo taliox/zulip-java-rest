@@ -14,28 +14,31 @@ public class HttpController {
 
 	/** The name of the name which sends requests. */
 	private String userName;
-	
+
 	/** The password of the user which sends requests. */
 	private String password;
-	
+
 	/** The Zulip server URL which receives requests. */
 	private String server;
 
 	/** HTTP CredentialsProvider. */
 	private CredentialsProvider provider;
-	
+
 	/** HTTP UsernamePasswordCredentlials */
 	private UsernamePasswordCredentials credentials;
-	
+
 	/** The Apache HttpClient. */
 	private HttpClient client;
 
 	/**
 	 * Instantiates a new http controller.
 	 *
-	 * @param userName The name of the name which sends requests.
-	 * @param password The password of the user which sends requests.
-	 * @param serverURL The Zulip server URL which receives requests.
+	 * @param userName
+	 *            The name of the name which sends requests.
+	 * @param password
+	 *            The password of the user which sends requests.
+	 * @param serverURL
+	 *            The Zulip server URL which receives requests.
 	 */
 	public HttpController(String userName, String password, String serverURL) {
 		this.userName = userName;

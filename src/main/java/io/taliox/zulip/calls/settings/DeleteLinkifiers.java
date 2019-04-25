@@ -7,11 +7,12 @@ import io.taliox.zulip.calls.ZulipRestAPICall;
 
 /**
  * <p>
- * Remove linkifiers, regular expression patterns that are automatically linkified when they appear in messages and topics.
+ * Remove linkifiers, regular expression patterns that are automatically
+ * linkified when they appear in messages and topics.
  * 
  * @see <a href=
  *      "https://zulipchat.com/help/add-a-custom-linkification-filter">https://zulipchat.com/help/add-a-custom-linkification-filter</a>
- *      
+ * 
  * @see <a href=
  *      "https://zulipchat.com/api/remove-linkifiers">https://zulipchat.com/api/remove-linkifiers</a>
  */
@@ -23,14 +24,17 @@ public class DeleteLinkifiers extends ZulipRestAPICall {
 	/**
 	 * Instantiates a new delete linkifiers.
 	 *
-	 * @param filter_id the filter id
+	 * @param filter_id
+	 *            the filter id
 	 */
 	public DeleteLinkifiers(String filter_id) {
-		setZulipAPIUrl("/api/v1/realm/filters/" + filter_id);		
+		setZulipAPIUrl("/api/v1/realm/filters/" + filter_id);
 		this.filter_id = filter_id;
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see io.taliox.zulip.calls.Callable#execute()
 	 */
 	public String execute(ZulipRestExecutor executor) {
@@ -52,11 +56,11 @@ public class DeleteLinkifiers extends ZulipRestAPICall {
 	/**
 	 * Sets the filter ID of the filter that you want to remove.
 	 *
-	 * @param filter_id the new filter id
+	 * @param filter_id
+	 *            the new filter id
 	 */
 	public void setFilter_id(String filter_id) {
 		this.filter_id = filter_id;
 	}
-	
-	
+
 }

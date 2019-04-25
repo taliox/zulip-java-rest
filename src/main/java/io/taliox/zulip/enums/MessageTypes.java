@@ -1,8 +1,10 @@
 package io.taliox.zulip.enums;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Enum MessageTypes.
+ * 
+ * @see <a href=
+ *      "https://zulipchat.com/api/send-message">https://zulipchat.com/api/send-message</a>
  */
 public enum MessageTypes {
 

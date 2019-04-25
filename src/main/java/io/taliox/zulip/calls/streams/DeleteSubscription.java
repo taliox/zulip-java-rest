@@ -30,7 +30,7 @@ public class DeleteSubscription extends ZulipRestAPICall {
 	 * Instantiates a new delete subscription.
 	 *
 	 * @param subscriptions
-	 *             A list of stream names to unsubscribe from.
+	 *            A list of stream names to unsubscribe from.
 	 */
 	public DeleteSubscription(String subscriptions) {
 		setZulipAPIUrl("/api/v1/users/me/subcriptions");

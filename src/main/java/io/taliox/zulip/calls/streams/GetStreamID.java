@@ -20,14 +20,17 @@ public class GetStreamID extends ZulipRestAPICall {
 	/**
 	 * Instantiates a new gets the stream ID.
 	 *
-	 * @param stream_name the stream name
+	 * @param stream_name
+	 *            the stream name
 	 */
 	public GetStreamID(String stream_name) {
 		this.stream_name = stream_name;
 		setZulipAPIUrl("/api/v1/get_stream_id");
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see io.taliox.zulip.calls.Callable#execute()
 	 */
 	public String execute(ZulipRestExecutor executor) {
@@ -50,10 +53,11 @@ public class GetStreamID extends ZulipRestAPICall {
 	/**
 	 * Sets the stream name.
 	 *
-	 * @param stream_name the new stream name
+	 * @param stream_name
+	 *            the new stream name
 	 */
 	public void setStream_name(String stream_name) {
 		this.stream_name = stream_name;
 	}
-	
+
 }

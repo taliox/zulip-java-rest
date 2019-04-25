@@ -22,7 +22,9 @@ public class GetProfile extends ZulipRestAPICall {
 		setZulipAPIUrl("/api/v1/users/me");
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see io.taliox.zulip.calls.Callable#execute()
 	 */
 	public String execute(ZulipRestExecutor executor) {
@@ -31,5 +33,5 @@ public class GetProfile extends ZulipRestAPICall {
 		HttpGet get = new HttpGet(this.httpController.getServer() + getZulipAPIUrl());
 		return performRequest(getParameters(), get);
 	}
-		
+
 }

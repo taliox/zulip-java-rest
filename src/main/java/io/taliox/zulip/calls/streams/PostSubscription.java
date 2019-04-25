@@ -59,10 +59,11 @@ public class PostSubscription extends ZulipRestAPICall {
 	 * Instantiates a new post subscription.
 	 *
 	 * @param subscriptions
-	 *            	 A list of dictionaries, where each dictionary contains key/value pairs
-	 * 				 specifying a particular stream to subscribe to. You can specify an initial
-	 * 				 description here when creating a new stream. Note: This argument is called
-	 * 				 streams and not subscriptions in our Python API.
+	 *            A list of dictionaries, where each dictionary contains key/value
+	 *            pairs specifying a particular stream to subscribe to. You can
+	 *            specify an initial description here when creating a new stream.
+	 *            Note: This argument is called streams and not subscriptions in our
+	 *            Python API.
 	 */
 	public PostSubscription(String subscriptions) {
 		setZulipAPIUrl("/api/v1/users/me/subscriptions");

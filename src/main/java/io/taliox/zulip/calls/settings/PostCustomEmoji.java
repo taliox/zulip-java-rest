@@ -71,7 +71,7 @@ public class PostCustomEmoji extends ZulipRestAPICall {
 	 * @param file
 	 *            The file to be uploaded.
 	 * @param emojiName
-	 *			  The name of the new emoji. The emoji name can only contain
+	 *            The name of the new emoji. The emoji name can only contain
 	 *            letters, numbers, dashes, and spaces. Upper and lower case letters
 	 *            are treated the same, and underscores (_) are treated the same as
 	 *            spaces (consistent with how the Zulip UI handles emoji).
@@ -156,12 +156,11 @@ public class PostCustomEmoji extends ZulipRestAPICall {
 	/**
 	 * Sets the emoji name.
 	 *
-	 * @param emojiName the new emoji name
+	 * @param emojiName
+	 *            the new emoji name
 	 */
 	public void setEmojiName(String emojiName) {
 		this.emojiName = emojiName;
 	}
-	
-	
 
 }

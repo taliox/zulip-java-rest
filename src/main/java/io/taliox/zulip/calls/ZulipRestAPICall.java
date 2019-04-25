@@ -121,7 +121,7 @@ public abstract class ZulipRestAPICall implements Callable {
 			HttpResponse response = this.httpController.getClient().execute(base);
 			br = new BufferedReader(new InputStreamReader((response.getEntity().getContent())));
 			String output;
-			
+
 			while ((output = br.readLine()) != null) {
 				builder.append(output);
 			}
