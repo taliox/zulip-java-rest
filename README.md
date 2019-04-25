@@ -1,4 +1,4 @@
-# zulip-js
+# zulip-java-rest
 A thin and easy to use Java library to access the [Zulip API](https://zulipchat.com/api/).
 This library covers every API call of the Zulip API except for real-time events but is in it's core really simple.
 # How to use
@@ -20,18 +20,27 @@ You can either use a bot or a user account to communicate with the API. To find 
 The core of this library is the `ZulipRestExecutor` it is responsible for performing HTTP calls.
 
 ```java
-ZulipRestExecutor executor = new ZulipRestExecutor("user@zulip.com", "apikey","https://zulip.example.com/");
+ZulipRestExecutor  = new ZulipRestExecutor("user@zulip.com", "apikey","https://zulip.example.com/");
 ```
+
+To change credentials after instantiating the ZulipRestExecutor it is recommended to create a new object for the moment.
 
 ### How to use the ZulipRestExecutor?
 To perform an API call you should use the `executeCall(ZulipRestAPICall call)` method of the newly created object.
-All API calls are packed inside the library as instantiatable objects which then can be executed by the `ZulipRestExecutor`
+All API calls are packed inside the library as instantiatable objects which be executed by the `ZulipRestExecutor`.
+The naming convention of all call objects is like the following: `HTTP request mehtod + API objectname`.
+
+So for instance if we want to send a message to someone on our Zulip server we need to create a `PostMessage` object to pass it into our executeCall method.
 
 ```java
-
+PostMessage postMessage = new PostMessage("anotheruser@zulip.com", "Hello world");
+String response = executor.executeCall(ZulipRestAPICall call)
 ```
 
-## Examples
+executeCall always returns the answer from the Zulip server for instance whether the call was successful or not.
+All API calls can be performed in a similiar way.
+
+## Some examples
 
 Please see some examples in [the examples directory](https://github.com/zulip/zulip-js/tree/master/examples).
 
