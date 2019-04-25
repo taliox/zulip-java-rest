@@ -8,9 +8,9 @@ Just add the following dependency to your pom.xml or the JAR of this repository 
 
 ```maven
 <dependency>
-	<groupId>javax.activation</groupId>
+	<groupId>io.taliox</groupId>
 	<artifactId>activation</artifactId>
-	<version>1.1</version>
+	<version>1.0</version>
 </dependency>
 ```
 ### Where do I get the API key for authentication?
@@ -107,12 +107,15 @@ String response = executor.executeCall(patchMessage);
 Please always refer to [official Zulip API documentation](https://zulipchat.com/api/) in case you are not sure what structure the parameters of an call object need to be.
 A full list of API calls, return types and parameters to perform calls can be found there.
 
+We are working on more examples and tests within the library so you can try it out right of the box.
+
 ## Contributing
 Thanks for your interest! Do not hesitate to open an issue if you have a question, feedback or found something that`s not supposed to be working like it shoud.
 Pull requests for improvements of the library are also highly appriciated.
 
 ## Licenses
-Each pull request should contain relevant tests as well as example usage.
+This library and its content is released under the [MIT License}(https://choosealicense.com/licenses/mit/).
 
 ## Disclaimer
-Each pull request should contain relevant tests as well as example usage.
+The whole Zulip product and it's API can be found [here](https://github.com/zulip).
+The documentation which was used here and is used inside of this project is heavily inspired by the official [Zulip site](https://zulipchat.com/api/) and the official [Zulip repositories](https://github.com/zulip).
