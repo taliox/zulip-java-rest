@@ -6,8 +6,12 @@ This library covers every API call of the Zulip API except for real-time events 
 ### Maven
 Just add the following dependency to your pom.xml or the JAR of this repository to your projects build path.
 
-```maven
-Coming soon!
+```xml
+<dependency>
+	<groupId>io.taliox</groupId>
+	<artifactId>zulip-java-rest</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+</dependency>
 ```
 ### Where do I get the API key for authentication?
 You can either use a bot or a user account to communicate with the API. To find out the needed token please see the official [Zulip documentation](https://zulipchat.com/api/api-keys).
