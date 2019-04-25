@@ -1,6 +1,7 @@
 package io.taliox.zulip;
 
 import io.taliox.zulip.calls.ZulipRestAPICall;
+import io.taliox.zulip.calls.settings.GetAllCustomEmoji;
 import io.taliox.zulip.calls.streams.PostCreateStream;
 import io.taliox.zulip.controller.HttpController;
 
@@ -44,10 +45,8 @@ public class ZulipRestExecutor {
 		ZulipRestExecutor z = new ZulipRestExecutor("Cookie-bot@zulip.taliox.io", "huAL10ED8dOz1CfqIHxVDVyCo2Ursjiw",
 				"https://zulip.taliox.io/");
 
-		PostCreateStream pcs = new PostCreateStream("SSSS");
-		pcs.setPrincipals("[\"tim.klimasch@taliox.io\"]");
-
-		System.out.println(z.executeCall(pcs));
+		GetAllCustomEmoji gace = new GetAllCustomEmoji();		
+		System.out.println(z.executeCall(gace));
 	}
 
 }

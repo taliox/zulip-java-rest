@@ -31,7 +31,7 @@ public abstract class ZulipRestAPICall implements Callable {
 	 * The http controller which is responsible for communicating with the Zulip
 	 * REST API of your server..
 	 */
-	public HttpController httpController;
+	protected HttpController httpController;
 
 	/** The zulip API url of your server. */
 	private String zulipAPIUrl;
@@ -45,7 +45,7 @@ public abstract class ZulipRestAPICall implements Callable {
 	/**
 	 * The abstract constructor for a ZulipRestAPICall.
 	 */
-	public ZulipRestAPICall() {
+	protected ZulipRestAPICall() {
 		builder = new StringBuilder();
 		parameters = new HashMap<String, String>();
 	}
@@ -60,7 +60,7 @@ public abstract class ZulipRestAPICall implements Callable {
 	 * @return The response String of the server after receiving and handling the
 	 *         request.
 	 */
-	public String performUploadRequest(File file, HttpPost post) {
+	protected String performUploadRequest(File file, HttpPost post) {
 		return handleHttpUpload(file, post);
 	}
 
@@ -74,7 +74,7 @@ public abstract class ZulipRestAPICall implements Callable {
 	 * @return The response String of the server after receiving and handling the
 	 *         request.
 	 */
-	public String performUploadRequest(String filePath, HttpPost post) {
+	protected String performUploadRequest(String filePath, HttpPost post) {
 		File toUpload = new File(filePath);
 		return handleHttpUpload(toUpload, post);
 	}
@@ -90,7 +90,7 @@ public abstract class ZulipRestAPICall implements Callable {
 	 * @return The response String of the server after receiving and handling the
 	 *         request.
 	 */
-	public String performRequest(HashMap<String, String> parameters, HttpRequestBase base) {
+	protected String performRequest(HashMap<String, String> parameters, HttpRequestBase base) {
 		URI uri = null;
 		BufferedReader br = null;
 		URIBuilder uriBuilder = null;
@@ -121,7 +121,7 @@ public abstract class ZulipRestAPICall implements Callable {
 			HttpResponse response = this.httpController.getClient().execute(base);
 			br = new BufferedReader(new InputStreamReader((response.getEntity().getContent())));
 			String output;
-
+			
 			while ((output = br.readLine()) != null) {
 				builder.append(output);
 			}
@@ -202,7 +202,7 @@ public abstract class ZulipRestAPICall implements Callable {
 	 *
 	 * @return the http controller
 	 */
-	public HttpController getHttpController() {
+	protected HttpController getHttpController() {
 		return httpController;
 	}
 
@@ -221,7 +221,7 @@ public abstract class ZulipRestAPICall implements Callable {
 	 *
 	 * @return the zulip API url
 	 */
-	public String getZulipAPIUrl() {
+	protected String getZulipAPIUrl() {
 		return zulipAPIUrl;
 	}
 
@@ -231,7 +231,7 @@ public abstract class ZulipRestAPICall implements Callable {
 	 * @param zulipAPIUrl
 	 *            the new zulip API url
 	 */
-	public void setZulipAPIUrl(String zulipAPIUrl) {
+	protected void setZulipAPIUrl(String zulipAPIUrl) {
 		this.zulipAPIUrl = zulipAPIUrl;
 	}
 
@@ -240,7 +240,7 @@ public abstract class ZulipRestAPICall implements Callable {
 	 *
 	 * @return the parameters
 	 */
-	public HashMap<String, String> getParameters() {
+	protected HashMap<String, String> getParameters() {
 		return parameters;
 	}
 
@@ -250,7 +250,7 @@ public abstract class ZulipRestAPICall implements Callable {
 	 * @param parameters
 	 *            the parameters
 	 */
-	public void setParameters(HashMap<String, String> parameters) {
+	protected void setParameters(HashMap<String, String> parameters) {
 		this.parameters = parameters;
 	}
 
