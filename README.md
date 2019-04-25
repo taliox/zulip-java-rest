@@ -28,7 +28,7 @@ To change credentials after instantiating the ZulipRestExecutor it is recommende
 ### How to use the ZulipRestExecutor?
 To perform an API call you should use the `executeCall(ZulipRestAPICall call)` method of the newly created object.
 All API calls are packed inside the library as instantiatable objects which be executed by the `ZulipRestExecutor`.
-The naming convention of all call objects is like the following: `HTTP request mehtod + API objectname`.
+The naming convention of all call objects is like the following: `HTTP request mehtod + object of action`.
 
 So for instance if we want to send a message to someone on our Zulip server we need to create a `PostMessage` object to pass it into our executeCall method.
 
@@ -38,107 +38,74 @@ String response = executor.executeCall(ZulipRestAPICall call)
 ```
 
 executeCall always returns the answer from the Zulip server for instance whether the call was successful or not.
-All API calls can be performed in a similiar way.
+After receiving the answer you can process it. Successful GET calls are often JSON encoded.
+
+All API calls can be performed after this principle.
 
 ## Some examples
 
-Please see some examples in [the examples directory](https://github.com/zulip/zulip-js/tree/master/examples).
-
-Also, to easily test an API endpoint while developing, you can run:
-
-```
-$ npm run build
-$ npm run call <method> <endpoint> [optional: json_params] [optional: path to zuliprc file]
-$ # For example:
-$ npm run call GET /users/me
-$ npm run call GET /users/me '' ~/path/to/my/zuliprc
+### Get all users
+```java
+GetAllUsers getAllUser = new GetAllUsers();
+String response = executor.executeCall(getAllUser);
 ```
 
-## Supported endpoints
-
-We support the following endpoints and are striving to have complete coverage of the API. If you want to use some endpoint we do not support presently, you can directly call it as follows:
-
-```js
-const params = {
-  to: 'bot testing',
-  type: 'stream',
-  subject: 'Testing zulip-js',
-  content: 'Something is horribly wrong....',
-};
-
-zulip.callEndpoint('/messages', 'POST', params);
+### Get own profile
+```java
+GetProfile getProfile = new GetProfile();
+String response = executor.executeCall(geProfile);
 ```
 
-| Function to call | API Endpoint | Documentation |
-| --- | --- | --- |
-| `zulip.accounts.retrieve()` | POST `/fetch_api_key` | returns a promise that you can use to retrieve your `API key`. |
-| `zulip.emojis.retrieve()` | GET `/realm/emoji` | retrieves the list of realm specific emojis. |
-| `zulip.events.retrieve()` | GET `/events` | retrieves events from a queue. You can pass it a params object with the id of the queue you are interested in, the last event id that you have received and wish to acknowledge. You can also specify whether the server should not block on this request until there is a new event (the default is to block). |
-| `zulip.messages.send()` | POST `/messages` | returns a promise that can be used to send a message.|
-| `zulip.messages.retrieve()` | GET `/messages` | returns a promise that can be used to retrieve messages from a stream. You need to specify the id of the message to be used as an anchor. Use `1000000000` to retrieve the most recent message, or [`zulip.users.me.pointer.retrieve()`](#fetching-a-pointer-for-a-user) to get the id of the last message the user read. |
-| `zulip.messages.render()` | POST `/messages/render` | returns a promise that can be used to get rendered HTML for a message text. |
-| `zulip.messages.update()` | PATCH `/messages/<msg_id>` | updates the content or topic of the message with the given `msg_id`. |
-| `zulip.messages.flags.add()` | POST `/messages/flags` | add a flag to a list of messages. Its params are `flag` which is one of `[read, starred, mentioned, wildcard_mentioned, has_alert_word, historical]` and `messages` which is a list of messageIDs. |
-| `zulip.messages.flags.remove()` | POST `/messages/flags` | remove a flag from a list of messages. Its params are `flag` which is one of `[read, starred, mentioned, wildcard_mentioned, has_alert_word, historical]` and `messages` which is a list of messageIDs. |
-| `zulip.messages.getById()` | GET `/messages/<msg_id>` | returns a message by its id. |
-| `zulip.messages.getHistoryById()` | GET `/messages/<msg_id>/history` | return the history of a message |
-| `zulip.messages.deleteReactionById()` | DELETE `/messages/<msg_id>/reactions` | deletes reactions on a message by message id |
-| `zulip.messages.deleteById()` | DELETE `/messages/<msg_id>` | delete the message with the provided message id if the user has permission to do so. |
-| `zulip.queues.register()` | POST `/register` | registers a new queue. You can pass it a params object with the types of events you are interested in and whether you want to receive raw text or html (using markdown). |
-| `zulip.queues.deregister()` | DELETE `/events` | deletes a previously registered queue. |
-| `zulip.reactions.add()` | POST `/reactions` | add a reaction to a message. Accepts a params object with `message_id`, `emoji_name`, `emoji_code` and `reaction_type` (default is `unicode_emoji`). |
-| `zulip.reactions.remove()` | DELETE `/reactions` | remove a reaction from a message. Accepts a params object with `message_id` and `emoji_code` and `reaction_type` (default is `unicode_emoji`). |
-| `zulip.streams.retrieve()` | GET `/streams` | returns a promise that can be used to retrieve all streams. |
-| `zulip.streams.getStreamId()` | GET `/get_stream_id` | returns a promise that can be used to retrieve a stream's id. |
-| `zulip.streams.subscriptions.retrieve()` | GET `/users/me/subscriptions` | returns a promise that can be used to retrieve the user's subscriptions. |
-| `zulip.streams.topics.retrieve()` | GET `/users/me/<stream_id>/topics` | retrieves all the topics in a specific stream. |
-| `zulip.typing.send()` | POST `/typing` | can be used to send a typing notification. The parameters required are `to` (either a username or a list of usernames) and `op` (either `start` or `stop`). |
-| `zulip.users.retrieve()` | GET `/users` | retrieves all users for this realm. |
-| `zulip.users.me.pointer.retrieve()` | GET `/users/me/pointer` | retrieves a pointer for a user. The pointer is the id of the last message the user read. This can then be used as an anchor message id for subsequent API calls. |
-| `zulip.users.me.getProfile()` | GET `/users/me` | retrieves the profile of the user/bot. |
-| `zulip.users.me.subscriptions()` | POST `/users/me/subscriptions` | subscribes a user to a stream/streams. |
-| `zulip.users.create()` | POST `/users` | create a new user. |
-| `zulip.users.me.alertWords.retrieve()` | GET `/users/me/alert_words` | get array of a user's alert words. |
-| `zulip.users.me.subscriptions.remove()` | DELETE `/users/me/subscriptions` | remove subscriptions. |
-| `zulip.users.me.pointer.update()` | POST `users/me/pointer` | updates the pointer for the user, for moving the home view. Accepts a message id. This has the side effect of marking some messages as read. Will not return success if the message id is invalid. Will always succeed if the id is less than the current value of the pointer (the id of the last message read). |
-| `zulip.server.settings()` | GET `/server_settings` | returns a dictionary of server settings. |
+### Get own profile
+```java
+GetAllStreams getAllStreams = new GetAllStreams();
+String response = executor.executeCall(getAllStreams);
+```		
 
-# Testing
-
-Use `npm test` to run the tests.
-
-## Writing Tests
-
-Currently, we have a simple testing framework which stubs our network
-requests and also allows us to test the input passed to it. This is what
-a sample test for an API endpoint looks like:
-
-```js
-const users = require('../../lib/resources/users'); // File to test.
-const common = require('../common'); // Common functions for tests.
-
-const chai = require('chai');
-chai.use(require('chai-as-promised'));
-
-chai.should();
-
-describe('Users', () => {
-  it('should fetch users', () => {
-    const validator = (url, options) => { // Function to test the network request parameters.
-      url.should.equal(`${common.config.apiURL}/users`);
-      Object.keys(options.body.data).length.should.equal(4);
-      options.body.data.subject.should.equal(params.subject);
-      options.body.data.content.should.equal(params.content);
-    };
-    const output = { // The data returned by the API in JSON format.
-      already_subscribed: {},
-      result: 'success',
-    };
-    const stubs = common.getStubs(validator, output); // Stub the network modules.
-    users(common.config).retrieve().should.eventually.have.property('result', 'success'); // Function call.
-    common.restoreStubs(stubs); // Restore the stubs.
-  });
-});
+### Send a message to a single person
+```java
+PostMessage postMessage = new PostMessage("anotheruser@zulip.com", "Hello world");
+String response = executor.executeCall(postMessage);
 ```
 
+### Send a message to a stream
+```java
+PostMessage postMessage = new PostMessage("Streamname", "topicname", "Hello world");
+String response = executor.executeCall(postMessage);
+```
+
+### Create a new user (requieres admin)
+```java
+PostCreateUser createUser = new PostCreateUser("newuser@zulip.com", "password", "the_new_longname","the_new_shortname");
+String response = executor.executeCall(createUser);
+```
+
+### Create a new stream
+```java
+PostCreateStream createStream = new PostCreateStream("[{\"description\":\"This is new\",\"name\":\"A new Stream\"}]");	
+createStream.setInvite_only(true);
+createStream.setAnnounce(true);
+```
+After instantiating the object to be executed you always can set optional parameters.
+In this case for example whether the newly created stream is supposed be invite only.
+This works the same for all objects.
+
+### Delete a message
+```
+DeleteMessage deleteMessage = new DeleteMessage("54");
+String response = executor.executeCall(deleteMessage);
+```
+
+### Patch a message
+```java
+PatchMessage patchMessage = new PatchMessage("13");
+patchMessage.setContent("I edited this");
+patchMessage.setType(UpdateMessageTypes.change_later);
+String response = executor.executeCall(patchMessage);
+```
+
+Please always refer to [official Zulip API documentation](https://zulipchat.com/api/) in case you are not sure what structure the parameters of an call object need to be.
+A full list of API calls, return types and parameters can be found there.
+
+## Collaboration
 Each pull request should contain relevant tests as well as example usage.
