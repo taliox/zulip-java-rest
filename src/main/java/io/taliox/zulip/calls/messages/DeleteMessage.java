@@ -5,30 +5,37 @@ import org.apache.http.client.methods.HttpDelete;
 import io.taliox.zulip.calls.ZulipRestAPICall;
 
 /**
- * <p> Permanently delete a message.
- * This API corresponds to the delete a message completely feature documented in the Zulip Help Center.
+ * <p>
+ * Permanently delete a message. This API corresponds to the delete a message
+ * completely feature documented in the Zulip Help Center.
  *
- * @see <a href="https://zulipchat.com/api/delete-message">https://zulipchat.com/api/delete-message</a>
- * @see <a href="https://zulipchat.com/help/edit-or-delete-a-message#delete-a-message-completely">https://zulipchat.com/help/edit-or-delete-a-message#delete-a-message-completely</a>
+ * @see <a href=
+ *      "https://zulipchat.com/api/delete-message">https://zulipchat.com/api/delete-message</a>
+ * @see <a href=
+ *      "https://zulipchat.com/help/edit-or-delete-a-message#delete-a-message-completely">https://zulipchat.com/help/edit-or-delete-a-message#delete-a-message-completely</a>
  *
  */
 public class DeleteMessage extends ZulipRestAPICall {
 
-
-	/** The message id. */
+	/**
+	 * The ID of the message to delete..
+	 */
 	private String message_id;
 
 	/**
 	 * Constructor for DeleteMessage.
 	 *
-	 * @param message_id the ID of the message to delete.
+	 * @param message_id
+	 *            the ID of the message to delete.
 	 */
 	public DeleteMessage(String message_id) {
-		setZulipAPIUrl("/api/v1/messages/" + message_id);		
+		setZulipAPIUrl("/api/v1/messages/" + message_id);
 		this.message_id = message_id;
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see io.taliox.zulip.calls.Callable#execute()
 	 */
 	public String execute() {
@@ -49,11 +56,11 @@ public class DeleteMessage extends ZulipRestAPICall {
 	/**
 	 * Sets the message id.
 	 *
-	 * @param message_id the new message id
+	 * @param message_id
+	 *            the new message id
 	 */
 	public void setMessage_id(String message_id) {
 		this.message_id = message_id;
 	}
-	
-	
+
 }

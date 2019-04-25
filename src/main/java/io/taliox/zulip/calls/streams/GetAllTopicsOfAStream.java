@@ -4,19 +4,22 @@ import org.apache.http.client.methods.HttpGet;
 
 import io.taliox.zulip.calls.ZulipRestAPICall;
 
-// TODO: Auto-generated Javadoc
 /**
- * The Class GetAllTopicsOfAStream.
+ * <p>
+ * Get all the topics in a specific stream.
+ * 
+ * @see <a href=
+ *      "https://zulipchat.com/api/get-stream-topics">https://zulipchat.com/api/get-stream-topics</a>
  */
 public class GetAllTopicsOfAStream extends ZulipRestAPICall {
 	
-	/** The stream id. */
+	/** The unique ID of the stream. */
 	private String stream_id;
 	
 	/**
 	 * Instantiates a new gets the all topics of A stream.
 	 *
-	 * @param stream_id the stream id
+	 * @param stream_id The unique ID of the stream.
 	 */
 	public GetAllTopicsOfAStream(String stream_id) {
 		super();

@@ -4,13 +4,16 @@ import org.apache.http.client.methods.HttpGet;
 
 import io.taliox.zulip.calls.ZulipRestAPICall;
 
-// TODO: Auto-generated Javadoc
 /**
- * The Class GetAllUsers.
+ * <p>
+ * Retrieve all users in a realm.
+ * 
+ * @see <a href=
+ *      "https://zulipchat.com/api/get-all-users">https://zulipchat.com/api/get-all-users</a>
  */
 public class GetAllUsers extends ZulipRestAPICall {
 
-	/** The client gravatar. */
+	/** The client_gravatar field is set to true if clients can compute their own gravatars. Defaults to false.*/
 	private boolean client_gravatar = false;
 
 	/**

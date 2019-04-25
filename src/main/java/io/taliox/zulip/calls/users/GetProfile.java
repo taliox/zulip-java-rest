@@ -4,9 +4,12 @@ import org.apache.http.client.methods.HttpGet;
 
 import io.taliox.zulip.calls.ZulipRestAPICall;
 
-// TODO: Auto-generated Javadoc
 /**
- * The Class GetProfile.
+ * <p>
+ * Get the profile of the user/bot that requests this endpoint.
+ * 
+ * @see <a href=
+ *      "https://zulipchat.com/api/get-profile">https://zulipchat.com/api/get-profile</a>
  */
 public class GetProfile extends ZulipRestAPICall {
 

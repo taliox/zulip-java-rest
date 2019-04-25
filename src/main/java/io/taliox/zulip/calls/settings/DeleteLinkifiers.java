@@ -1,19 +1,22 @@
-/*
- * 
- */
 package io.taliox.zulip.calls.settings;
 
 import org.apache.http.client.methods.HttpDelete;
 
 import io.taliox.zulip.calls.ZulipRestAPICall;
 
-// TODO: Auto-generated Javadoc
 /**
- * The Class DeleteLinkifiers.
+ * <p>
+ * Remove linkifiers, regular expression patterns that are automatically linkified when they appear in messages and topics.
+ * 
+ * @see <a href=
+ *      "https://zulipchat.com/help/add-a-custom-linkification-filter">https://zulipchat.com/help/add-a-custom-linkification-filter</a>
+ *      
+ * @see <a href=
+ *      "https://zulipchat.com/api/remove-linkifiers">https://zulipchat.com/api/remove-linkifiers</a>
  */
 public class DeleteLinkifiers extends ZulipRestAPICall {
 
-	/** The filter id. */
+	/** The ID of the filter that you want to remove. */
 	private String filter_id;
 
 	/**
@@ -36,7 +39,7 @@ public class DeleteLinkifiers extends ZulipRestAPICall {
 	}
 
 	/**
-	 * Gets the filter id.
+	 * Gets the filter ID of the filter that you want to remove.
 	 *
 	 * @return the filter id
 	 */
@@ -45,7 +48,7 @@ public class DeleteLinkifiers extends ZulipRestAPICall {
 	}
 
 	/**
-	 * Sets the filter id.
+	 * Sets the filter ID of the filter that you want to remove.
 	 *
 	 * @param filter_id the new filter id
 	 */

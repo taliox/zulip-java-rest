@@ -4,9 +4,19 @@ import org.apache.http.client.methods.HttpGet;
 
 import io.taliox.zulip.calls.ZulipRestAPICall;
 
-// TODO: Auto-generated Javadoc
 /**
- * The Class GetServerSettings.
+ * <p>
+ * Fetch global settings for a Zulip server.
+ * 
+ * <b>Note:</b> this endpoint does not require any authentication at all, and you can use it to check:
+ * • If this is a Zulip server, and if so, what version of Zulip it's running.
+ * • What a Zulip client (e.g. a mobile app or  zulip-terminal) needs to know in order to display a login prompt for the server (e.g. what authentication methods are available).
+ * 
+ * @see <a href=
+ *      "https://github.com/zulip/zulip-terminal/">https://github.com/zulip/zulip-terminal/</a>
+ * 
+ * @see <a href=
+ *      "https://zulipchat.com/api/server-settings">https://zulipchat.com/api/server-settings</a>
  */
 public class GetServerSettings extends ZulipRestAPICall {
 

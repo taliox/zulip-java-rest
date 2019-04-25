@@ -7,36 +7,35 @@ import org.apache.http.client.HttpClient;
 import org.apache.http.impl.client.BasicCredentialsProvider;
 import org.apache.http.impl.client.HttpClientBuilder;
 
-// TODO: Auto-generated Javadoc
 /**
- * The Class HttpController.
+ * The Class HttpController which is responsible for sending HTTP requests.
  */
 public class HttpController {
 
-	/** The user name. */
+	/** The name of the name which sends requests. */
 	private String userName;
 	
-	/** The password. */
+	/** The password of the user which sends requests. */
 	private String password;
 	
-	/** The server. */
+	/** The Zulip server URL which receives requests. */
 	private String server;
 
-	/** The provider. */
+	/** HTTP CredentialsProvider. */
 	private CredentialsProvider provider;
 	
-	/** The credentials. */
+	/** HTTP UsernamePasswordCredentlials */
 	private UsernamePasswordCredentials credentials;
 	
-	/** The client. */
+	/** The Apache HttpClient. */
 	private HttpClient client;
 
 	/**
 	 * Instantiates a new http controller.
 	 *
-	 * @param userName the user name
-	 * @param password the password
-	 * @param serverURL the server URL
+	 * @param userName The name of the name which sends requests.
+	 * @param password The password of the user which sends requests.
+	 * @param serverURL The Zulip server URL which receives requests.
 	 */
 	public HttpController(String userName, String password, String serverURL) {
 		this.userName = userName;

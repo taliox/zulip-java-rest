@@ -20,7 +20,7 @@ public class ZulipRestExecutor {
 	}
 
 	/**
-	* Executes a call.
+	* Executes a HTTP call to a Zulip server.
 	* 
 	* @param call The call to the Zulip REST API to be executed.
 	* 

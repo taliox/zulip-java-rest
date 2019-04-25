@@ -30,8 +30,8 @@ public class PostMessage extends ZulipRestAPICall {
 	/**
 	 * Instantiates a new post message.
 	 *
-	 * @param toEmail the to email
-	 * @param content the content
+	 * @param toEmail The to email or a CSV/JSON-encoded list containing the usernames (emails) of the recipients.
+	 * @param content The content of the message. Maximum message size of 10000 bytes. 
 	 */
 	public PostMessage(String toEmail, String content) {
 		setZulipAPIUrl("/api/v1/messages");		

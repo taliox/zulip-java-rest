@@ -1,15 +1,14 @@
 package io.taliox.zulip.exceptions;
 
-// TODO: Auto-generated Javadoc
 /**
- * The Class NotAuthroizedException.
+ * Thrown when the user credentials you provided are not valid for the Zulip server.
  */
 public class NotAuthroizedException extends Exception {
 
 	/** The Constant serialVersionUID. */
 	private static final long serialVersionUID = 1L;
 	
-	/** The message. */
+	/** The message which is displayed when raising this exception. */
 	private static String message;
 
 	/**

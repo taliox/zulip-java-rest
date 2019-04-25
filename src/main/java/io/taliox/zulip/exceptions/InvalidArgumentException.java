@@ -1,14 +1,14 @@
 package io.taliox.zulip.exceptions;
 
 /**
- * The Class InvalidArgumentException.
+ * Thrown when an argument for a HTTP call is invalid. For instance when it is null.
  */
 public class InvalidArgumentException extends Exception {
 	
 	/** The Constant serialVersionUID. */
 	private static final long serialVersionUID = 1L;
 	
-	/** The message. */
+	/** The message which is displayed when raising this exception. */
 	private static String message;
 
 	/**

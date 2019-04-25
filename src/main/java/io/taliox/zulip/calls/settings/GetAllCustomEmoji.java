@@ -4,9 +4,12 @@ import org.apache.http.client.methods.HttpGet;
 
 import io.taliox.zulip.calls.ZulipRestAPICall;
 
-// TODO: Auto-generated Javadoc
 /**
- * The Class GetAllCustomEmoji.
+ * <p>
+ * Get all the custom emoji in the user's organization.
+ * 
+ * @see <a href=
+ *      "https://zulipchat.com/api/get-org-emoji">https://zulipchat.com/api/get-org-emoji</a>
  */
 public class GetAllCustomEmoji extends ZulipRestAPICall {
 

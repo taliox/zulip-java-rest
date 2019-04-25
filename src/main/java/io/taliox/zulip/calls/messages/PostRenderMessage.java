@@ -4,19 +4,23 @@ import org.apache.http.client.methods.HttpPost;
 
 import io.taliox.zulip.calls.ZulipRestAPICall;
 
-// TODO: Auto-generated Javadoc
 /**
- * The Class PostRenderMessage.
+ * <p>
+ * Render a message to HTML.
+ * 
+ * @see <a href=
+ *      "https://zulipchat.com/api/render-message">https://zulipchat.com/api/render-message</a>
+ *
  */
 public class PostRenderMessage extends ZulipRestAPICall {
 	
-	/** The content. */
+	/** The content of the message. */
 	private String content;
 	
 	/**
 	 * Instantiates a new post render message.
 	 *
-	 * @param content the content
+	 * @param content The content of the message.
 	 */
 	public PostRenderMessage(String content) {
 		setZulipAPIUrl("/api/v1/messages/render");		

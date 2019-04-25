@@ -5,33 +5,37 @@ import org.apache.http.client.methods.HttpGet;
 import io.taliox.zulip.calls.ZulipRestAPICall;
 
 /**
- * <p> Permanently delete a message.
- * Fetch the message edit history of a previously edited message.
- * Note that edit history may be disabled in some organizations.
+ * <p>
+ * Permanently delete a message. Fetch the message edit history of a previously
+ * edited message. Note that edit history may be disabled in some organizations.
  * 
- * @see <a href="https://zulipchat.com/api/get-message-history">https://zulipchat.com/api/get-message-history</a>
- * @see <a href="https://zulipchat.com/help/view-a-messages-edit-history">https://zulipchat.com/help/view-a-messages-edit-history</a>
+ * @see <a href=
+ *      "https://zulipchat.com/api/get-message-history">https://zulipchat.com/api/get-message-history</a>
+ * @see <a href=
+ *      "https://zulipchat.com/help/view-a-messages-edit-history">https://zulipchat.com/help/view-a-messages-edit-history</a>
  *
  */
 public class GetMessageEditHistory extends ZulipRestAPICall {
 
-
 	/**
-	 * The ID of the message to delete.
+	 * The ID of the message you want to fetch the history of.
 	 */
 	private String message_id;
 
 	/**
 	 * Constructor for DeleteMessage.
 	 *
-	 * @param message_id the ID of the message to delete.
+	 * @param message_id
+	 *            The ID of the message you want to fetch the history of.
 	 */
 	public GetMessageEditHistory(String message_id) {
-		setZulipAPIUrl("/api/v1/messages/" + message_id + "/history");		
+		setZulipAPIUrl("/api/v1/messages/" + message_id + "/history");
 		this.message_id = message_id;
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see io.taliox.zulip.calls.Callable#execute()
 	 */
 	public String execute() {
@@ -52,10 +56,11 @@ public class GetMessageEditHistory extends ZulipRestAPICall {
 	/**
 	 * Sets the message id.
 	 *
-	 * @param message_id the new message id
+	 * @param message_id
+	 *            the new message id
 	 */
 	public void setMessage_id(String message_id) {
 		this.message_id = message_id;
 	}
-	
+
 }

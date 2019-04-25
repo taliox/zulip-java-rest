@@ -4,25 +4,28 @@ import org.apache.http.client.methods.HttpGet;
 
 import io.taliox.zulip.calls.ZulipRestAPICall;
 
-// TODO: Auto-generated Javadoc
 /**
- * The Class GetAllStreams.
+ * <p>
+ * Get all streams that the user has access to.
+ * 
+ * @see <a href=
+ *      "https://zulipchat.com/api/get-all-streams">https://zulipchat.com/api/get-all-streams</a>
  */
 public class GetAllStreams extends ZulipRestAPICall {
 
-	/** The include public. */
+	/** Include all public streams. Defaults to true. */
 	private boolean include_public = true;
 	
-	/** The include subscribed. */
+	/** Include all streams that the user is subscribed to. Defaults to  true. */
 	private boolean include_subscribed = true;
 	
-	/** The include all active. */
+	/** Include all active streams. The user must have administrative privileges to use this parameter. Defaults to false. */
 	private boolean include_all_active = false;
 	
-	/** The include default. */
+	/** Include all default streams for the user's realm. Defaults to  false. */
 	private boolean include_default = false;
 	
-	/** The include owner subscribed. */
+	/** If the user is a bot, include all streams that the bot's owner is subscribed to. Defaults to false. */
 	private boolean include_owner_subscribed = false;
 	
 	/**

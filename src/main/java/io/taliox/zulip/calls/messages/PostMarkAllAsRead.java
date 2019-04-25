@@ -4,9 +4,13 @@ import org.apache.http.client.methods.HttpPost;
 
 import io.taliox.zulip.calls.ZulipRestAPICall;
 
-// TODO: Auto-generated Javadoc
 /**
- * The Class PostMarkAllAsRead.
+ * <p>
+ * Marks all of the current user's unread messages as read.
+ * 
+ * @see <a href=
+ *      "https://zulipchat.com/api/mark-as-read-bulk">https://zulipchat.com/api/mark-as-read-bulk</a>
+ *
  */
 public class PostMarkAllAsRead extends ZulipRestAPICall {
 	

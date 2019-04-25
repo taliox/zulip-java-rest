@@ -26,16 +26,16 @@ import io.taliox.zulip.exceptions.NotAuthroizedException;
 
 public abstract class ZulipRestAPICall implements Callable {
 
-	/** The http controller. */
+	/** The http controller which is responsible for communicating with the Zulip REST API of your server.. */
 	public HttpController httpController;
 	
-	/** The zulip API url. */
+	/** The zulip API url of your server. */
 	private String zulipAPIUrl;
 	
-	/** The builder. */
+	/** The builder StringBuilder which is used process data. */
 	private StringBuilder builder;
 	
-	/** The parameters. */
+	/** The parameters which are send to your Zulip REST API. */
 	private HashMap<String, String> parameters;
 
 	/**
@@ -47,22 +47,22 @@ public abstract class ZulipRestAPICall implements Callable {
 	}
 
 	/**
-	 * Perform upload request.
+	 * Perform HTTP upload request.
 	 *
-	 * @param file the file
-	 * @param post the post
-	 * @return the string
+	 * @param file The file which is supposed to be upoaded.
+	 * @param post The HTTP post object which is used for the upload.
+	 * @return The response String of the server after receiving and handling the request.
 	 */
 	public String performUploadRequest(File file, HttpPost post) {
 		return handleHttpUpload(file, post);
 	}
 
 	/**
-	 * Perform upload request.
+	 * Perform HTTP upload request.
 	 *
-	 * @param filePath the file path
-	 * @param post the post
-	 * @return the string
+	 * @param filePath The path of the file to be uploaded.
+	 * @param post The HTTP post object which is used for the upload.
+	 * @return The response String of the server after receiving and handling the request.
 	 */
 	public String performUploadRequest(String filePath, HttpPost post) {
 		File toUpload = new File(filePath);
@@ -70,11 +70,11 @@ public abstract class ZulipRestAPICall implements Callable {
 	}
 
 	/**
-	 * Perform request.
+	 * Perform HTTP request.
 	 *
-	 * @param parameters the parameters
-	 * @param base the base
-	 * @return the string
+	 * @param parameters The parameters which are send to your Zulip REST API.
+	 * @param base The HTTP base object. Might be a HttpPost or a HttpGet for instance.
+	 * @return The response String of the server after receiving and handling the request.
 	 */
 	public String performRequest(HashMap<String, String> parameters, HttpRequestBase base) {
 		URI uri = null;
@@ -129,11 +129,11 @@ public abstract class ZulipRestAPICall implements Callable {
 	}
 
 	/**
-	 * Handle http upload.
+	 * Handle HTTP upload.
 	 *
-	 * @param file the file to upload.
-	 * @param post the post object
-	 * @return the string
+	 * @param file The file which is supposed to be upoaded.
+	 * @param post The HTTP post object which is used for the upload.
+	 * @return The response String of the server after receiving and handling the request.
 	 */
 	private String handleHttpUpload(File file, HttpPost post) {
 		HttpClient client = getHttpController().getClient();

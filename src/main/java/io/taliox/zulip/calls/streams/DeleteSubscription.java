@@ -4,29 +4,41 @@ import org.apache.http.client.methods.HttpDelete;
 
 import io.taliox.zulip.calls.ZulipRestAPICall;
 
-// TODO: Auto-generated Javadoc
 /**
- * The Class DeleteSubscription.
+ * <p>
+ * Unsubscribe yourself or other users from one or more streams.
+ * 
+ * @see <a href=
+ *      "https://zulipchat.com/api/remove-subscriptions">https://zulipchat.com/api/remove-subscriptions</a>
  */
 public class DeleteSubscription extends ZulipRestAPICall {
 
-	/** The subscriptions. */
+	/**
+	 * A list of stream names to unsubscribe from.
+	 */
 	private String subscriptions;
-	
-	/** The principals. */
+
+	/**
+	 * A list of email addresses of the users that will be unsubscribed from the
+	 * streams specified in the subscriptions argument. If not provided, then the
+	 * requesting user/bot is unsubscribed.
+	 */
 	private String principals;
 
 	/**
 	 * Instantiates a new delete subscription.
 	 *
-	 * @param subscriptions the subscriptions
+	 * @param subscriptions
+	 *             A list of stream names to unsubscribe from.
 	 */
 	public DeleteSubscription(String subscriptions) {
 		setZulipAPIUrl("/api/v1/users/me/subcriptions");
 		this.subscriptions = subscriptions;
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see io.taliox.zulip.calls.Callable#execute()
 	 */
 	public String execute() {
@@ -50,7 +62,8 @@ public class DeleteSubscription extends ZulipRestAPICall {
 	/**
 	 * Sets the subscriptions.
 	 *
-	 * @param subscriptions the new subscriptions
+	 * @param subscriptions
+	 *            the new subscriptions
 	 */
 	public void setSubscriptions(String subscriptions) {
 		this.subscriptions = subscriptions;
@@ -68,10 +81,11 @@ public class DeleteSubscription extends ZulipRestAPICall {
 	/**
 	 * Sets the principals.
 	 *
-	 * @param principals the new principals
+	 * @param principals
+	 *            the new principals
 	 */
 	public void setPrincipals(String principals) {
 		this.principals = principals;
 	}
-	
+
 }

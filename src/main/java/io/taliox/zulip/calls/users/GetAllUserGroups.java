@@ -4,9 +4,12 @@ import org.apache.http.client.methods.HttpGet;
 
 import io.taliox.zulip.calls.ZulipRestAPICall;
 
-// TODO: Auto-generated Javadoc
 /**
- * The Class GetAllUserGroups.
+ * <p>
+ * Fetches all of the user groups in the organization.
+ * 
+ * @see <a href=
+ *      "https://zulipchat.com/api/get-user-groups">https://zulipchat.com/api/get-user-groups</a>
  */
 public class GetAllUserGroups extends ZulipRestAPICall {
 

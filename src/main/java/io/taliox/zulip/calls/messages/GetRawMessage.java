@@ -16,14 +16,13 @@ import io.taliox.zulip.calls.ZulipRestAPICall;
  */
 public class GetRawMessage extends ZulipRestAPICall {
 
-	/** The message id. */
+	/** The target message's ID. */
 	private String message_id;
 
 	/**
 	 * Instantiates a new gets the raw message.
 	 *
-	 * @param message_id
-	 *            the message id
+	 * @param message_id The target message's ID.
 	 */
 	public GetRawMessage(String message_id) {
 		setZulipAPIUrl("/api/v1/messages/" + message_id);

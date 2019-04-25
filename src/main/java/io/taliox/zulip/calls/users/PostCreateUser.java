@@ -4,31 +4,44 @@ import org.apache.http.client.methods.HttpPost;
 
 import io.taliox.zulip.calls.ZulipRestAPICall;
 
-// TODO: Auto-generated Javadoc
 /**
- * The Class PostCreateUser.
+ * <p>
+ * Create a new user in a realm.
+ *
+ * <b>Note:</b> The requesting user must be an administrator.
+ * 
+ * @see <a href=
+ *      "https://zulipchat.com/api/get-profile">https://zulipchat.com/api/get-profile</a>
  */
 public class PostCreateUser extends ZulipRestAPICall {
 
-	/** The email. */
+	/**
+	 * The email address of the new user.
+	 */
 	private String email;
-	
-	/** The password. */
+
+	/**
+	 * The password of the new user.
+	 */
 	private String password;
-	
-	/** The full name. */
+
+	/** The full name of the new user. */
 	private String full_name;
-	
-	/** The short name. */
+
+	/** The short name of the new user. */
 	private String short_name;
 
 	/**
 	 * Instantiates a new post create user.
 	 *
-	 * @param email the email
-	 * @param password the password
-	 * @param full_name the full name
-	 * @param short_name the short name
+	 * @param email
+	 *            The email address of the new user.
+	 * @param password
+	 *            The password of the new user.
+	 * @param full_name
+	 *            The full name of the new user.
+	 * @param short_name
+	 *            The short name of the new user.
 	 */
 	public PostCreateUser(String email, String password, String full_name, String short_name) {
 		setZulipAPIUrl("/api/v1/users");
@@ -38,7 +51,9 @@ public class PostCreateUser extends ZulipRestAPICall {
 		this.short_name = short_name;
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see io.taliox.zulip.calls.Callable#execute()
 	 */
 	public String execute() {
@@ -62,7 +77,8 @@ public class PostCreateUser extends ZulipRestAPICall {
 	/**
 	 * Sets the email.
 	 *
-	 * @param email the new email
+	 * @param email
+	 *            the new email
 	 */
 	public void setEmail(String email) {
 		this.email = email;
@@ -80,7 +96,8 @@ public class PostCreateUser extends ZulipRestAPICall {
 	/**
 	 * Sets the password.
 	 *
-	 * @param password the new password
+	 * @param password
+	 *            the new password
 	 */
 	public void setPassword(String password) {
 		this.password = password;
@@ -98,7 +115,8 @@ public class PostCreateUser extends ZulipRestAPICall {
 	/**
 	 * Sets the full name.
 	 *
-	 * @param full_name the new full name
+	 * @param full_name
+	 *            the new full name
 	 */
 	public void setFull_name(String full_name) {
 		this.full_name = full_name;
@@ -116,10 +134,11 @@ public class PostCreateUser extends ZulipRestAPICall {
 	/**
 	 * Sets the short name.
 	 *
-	 * @param short_name the new short name
+	 * @param short_name
+	 *            the new short name
 	 */
 	public void setShort_name(String short_name) {
 		this.short_name = short_name;
 	}
-		
+
 }

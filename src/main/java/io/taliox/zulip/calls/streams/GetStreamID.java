@@ -4,13 +4,16 @@ import org.apache.http.client.methods.HttpGet;
 
 import io.taliox.zulip.calls.ZulipRestAPICall;
 
-// TODO: Auto-generated Javadoc
 /**
- * The Class GetStreamID.
+ * <p>
+ * Get the unique ID of a given stream.
+ * 
+ * @see <a href=
+ *      "https://zulipchat.com/api/get-stream-id">https://zulipchat.com/api/get-stream-id</a>
  */
 public class GetStreamID extends ZulipRestAPICall {
 
-	/** The stream name. */
+	/** The name of the stream to retrieve the ID for. */
 	private String stream_name;
 
 	/**

@@ -4,26 +4,43 @@ import org.apache.http.client.methods.HttpPatch;
 
 import io.taliox.zulip.calls.ZulipRestAPICall;
 
-// TODO: Auto-generated Javadoc
 /**
- * The Class PatchSubscriptionSettings.
+ * <p>
+ * This endpoint is used to update the user's personal settings for the streams
+ * they are subscribed to, including muting, color, pinning, and per-stream
+ * notification settings.
+ * 
+ * @see <a href=
+ *      "https://zulipchat.com/api/update-subscription-properties">https://zulipchat.com/api/update-subscription-properties</a>
  */
 public class PatchSubscriptionSettings extends ZulipRestAPICall {
 
-	/** The subscription data. */
+	/**
+	 * A list of objects that describe the changes that should be applied in each
+	 * subscription. Each object represents a subscription, and must have a
+	 * stream_id key that identifies the stream, as well as the property being
+	 * modified and its new value..
+	 */
 	private String subscription_data;
 
 	/**
 	 * Instantiates a new patch subscription settings.
 	 *
-	 * @param subscription_data the subscription data
+	 * @param subscription_data
+	 * 
+	 *            A list of objects that describe the changes that should be applied
+	 *            in each subscription. Each object represents a subscription, and
+	 *            must have a stream_id key that identifies the stream, as well as
+	 *            the property being modified and its new value.
 	 */
 	public PatchSubscriptionSettings(String subscription_data) {
-		setZulipAPIUrl("/api/v1/users/me/subscriptions/properties");		
+		setZulipAPIUrl("/api/v1/users/me/subscriptions/properties");
 		this.subscription_data = subscription_data;
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see io.taliox.zulip.calls.Callable#execute()
 	 */
 	public String execute() {
@@ -44,10 +61,11 @@ public class PatchSubscriptionSettings extends ZulipRestAPICall {
 	/**
 	 * Sets the subscription data.
 	 *
-	 * @param subscription_data the new subscription data
+	 * @param subscription_data
+	 *            the new subscription data
 	 */
 	public void setSubscription_data(String subscription_data) {
 		this.subscription_data = subscription_data;
 	}
-		
+
 }

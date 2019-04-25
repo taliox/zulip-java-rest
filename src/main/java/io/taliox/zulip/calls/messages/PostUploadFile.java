@@ -56,7 +56,7 @@ public class PostUploadFile extends ZulipRestAPICall {
 	}
 
 	/**
-	 * Gets the file path.
+	 * Gets the file path which should be uploaded.
 	 *
 	 * @return the file path
 	 */
@@ -65,7 +65,7 @@ public class PostUploadFile extends ZulipRestAPICall {
 	}
 
 	/**
-	 * Sets the file path.
+	 * Sets the file path which should be uploaded.
 	 *
 	 * @param filePath the new file path
 	 */
@@ -74,7 +74,7 @@ public class PostUploadFile extends ZulipRestAPICall {
 	}
 
 	/**
-	 * Gets the file.
+	 * Gets the file which should be uploaded.
 	 *
 	 * @return the file
 	 */
@@ -83,7 +83,7 @@ public class PostUploadFile extends ZulipRestAPICall {
 	}
 
 	/**
-	 * Sets the file.
+	 * Sets the file which should be uploaded.
 	 *
 	 * @param file the new file
 	 */

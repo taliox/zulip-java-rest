@@ -4,9 +4,12 @@ import org.apache.http.client.methods.HttpGet;
 
 import io.taliox.zulip.calls.ZulipRestAPICall;
 
-// TODO: Auto-generated Javadoc
 /**
- * The Class GetSubscribedStreams.
+ * <p>
+ * Get all streams that the user is subscribed to.
+ * 
+ * @see <a href=
+ *      "https://zulipchat.com/api/get-subscribed-streams">https://zulipchat.com/api/get-subscribed-streams</a>
  */
 public class GetSubscribedStreams extends ZulipRestAPICall {
 

@@ -6,27 +6,34 @@ import io.taliox.zulip.calls.ZulipRestAPICall;
 import io.taliox.zulip.enums.MessageFlagTypes;
 import io.taliox.zulip.enums.MessageFlagsOpTypes;
 
-// TODO: Auto-generated Javadoc
 /**
- * The Class PostMessageFlags.
+ * <p>
+ * Add or remove flags in a list of messages.
+ * For updating the read flag on common collections of messages.
+ * 
+ * @see <a href=
+ *      "https://zulipchat.com/api/mark-as-read-bulk">https://zulipchat.com/api/mark-as-read-bulk</a>
+ * @see <a href=
+ *      "https://zulipchat.com/api/update-message-flags">https://zulipchat.com/api/update-message-flags</a>
+ *
  */
 public class PostMessageFlags extends ZulipRestAPICall {
 
-	/** The messages. */
+	/** An string as array containing the IDs of the target messages. */
 	private String messages;
 	
-	/** The op. */
+	/** Whether to add the flag or remove it. Must be one of: add, remove. */
 	private MessageFlagsOpTypes op;
 	
-	/** The flag. */
+	/** The flag that should be added/removed. Must be one of: read, starred,  collapsed, mentioned, wildcard_mentioned, summarize_in_home,  summarize_in_stream, force_expand, force_collapse, has_alert_word,  historical. */
 	private MessageFlagTypes flag;
 
 	/**
 	 * Instantiates a new post message flags.
 	 *
-	 * @param messages the messages
-	 * @param op the op
-	 * @param flag the flag
+	 * @param messages An string as array containing the IDs of the target messages.
+	 * @param op Whether to add the flag or remove it. Must be one of: add, remove.
+	 * @param flag The flag that should be added/removed. Must be one of: read, starred,  collapsed, mentioned, wildcard_mentioned, summarize_in_home,  summarize_in_stream, force_expand, force_collapse, has_alert_word,  historical.
 	 */
 	public PostMessageFlags(String messages, MessageFlagsOpTypes op, MessageFlagTypes flag) {
 		super();
