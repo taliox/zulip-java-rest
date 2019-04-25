@@ -18,7 +18,10 @@ public class PostCreateStream extends PostSubscription {
 	 * Instantiates a new post create stream.
 	 *
 	 * @param subscriptions
-	 *            the subscriptions
+	 * 					A list of dictionaries, where each dictionary contains key/value pairs
+	 * 					specifying a particular stream to subscribe to. You can specify an initial
+	 * 					description here when creating a new stream. Note: This argument is called
+	 * 					streams and not subscriptions in our Python API.
 	 */
 	public PostCreateStream(String subscriptions) {
 		super(subscriptions);

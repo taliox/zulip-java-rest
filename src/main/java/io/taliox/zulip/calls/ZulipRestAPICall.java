@@ -21,20 +21,24 @@ import org.apache.http.entity.mime.MultipartEntityBuilder;
 import org.apache.http.entity.mime.content.FileBody;
 
 import io.taliox.zulip.controller.HttpController;
+import io.taliox.zulip.exceptions.BadRequestException;
 import io.taliox.zulip.exceptions.InvalidArgumentException;
 import io.taliox.zulip.exceptions.NotAuthroizedException;
 
 public abstract class ZulipRestAPICall implements Callable {
 
-	/** The http controller which is responsible for communicating with the Zulip REST API of your server.. */
+	/**
+	 * The http controller which is responsible for communicating with the Zulip
+	 * REST API of your server..
+	 */
 	public HttpController httpController;
-	
+
 	/** The zulip API url of your server. */
 	private String zulipAPIUrl;
-	
+
 	/** The builder StringBuilder which is used process data. */
 	private StringBuilder builder;
-	
+
 	/** The parameters which are send to your Zulip REST API. */
 	private HashMap<String, String> parameters;
 
@@ -49,9 +53,12 @@ public abstract class ZulipRestAPICall implements Callable {
 	/**
 	 * Perform HTTP upload request.
 	 *
-	 * @param file The file which is supposed to be upoaded.
-	 * @param post The HTTP post object which is used for the upload.
-	 * @return The response String of the server after receiving and handling the request.
+	 * @param file
+	 *            The file which is supposed to be upoaded.
+	 * @param post
+	 *            The HTTP post object which is used for the upload.
+	 * @return The response String of the server after receiving and handling the
+	 *         request.
 	 */
 	public String performUploadRequest(File file, HttpPost post) {
 		return handleHttpUpload(file, post);
@@ -60,9 +67,12 @@ public abstract class ZulipRestAPICall implements Callable {
 	/**
 	 * Perform HTTP upload request.
 	 *
-	 * @param filePath The path of the file to be uploaded.
-	 * @param post The HTTP post object which is used for the upload.
-	 * @return The response String of the server after receiving and handling the request.
+	 * @param filePath
+	 *            The path of the file to be uploaded.
+	 * @param post
+	 *            The HTTP post object which is used for the upload.
+	 * @return The response String of the server after receiving and handling the
+	 *         request.
 	 */
 	public String performUploadRequest(String filePath, HttpPost post) {
 		File toUpload = new File(filePath);
@@ -72,15 +82,21 @@ public abstract class ZulipRestAPICall implements Callable {
 	/**
 	 * Perform HTTP request.
 	 *
-	 * @param parameters The parameters which are send to your Zulip REST API.
-	 * @param base The HTTP base object. Might be a HttpPost or a HttpGet for instance.
-	 * @return The response String of the server after receiving and handling the request.
+	 * @param parameters
+	 *            The parameters which are send to your Zulip REST API.
+	 * @param base
+	 *            The HTTP base object. Might be a HttpPost or a HttpGet for
+	 *            instance.
+	 * @return The response String of the server after receiving and handling the
+	 *         request.
 	 */
 	public String performRequest(HashMap<String, String> parameters, HttpRequestBase base) {
 		URI uri = null;
+		BufferedReader br = null;
+		URIBuilder uriBuilder = null;
 
 		try {
-			URIBuilder uriBuilder = new URIBuilder(base.getURI());
+			uriBuilder = new URIBuilder(base.getURI());
 
 			for (Entry<String, String> e : parameters.entrySet()) {
 
@@ -103,18 +119,23 @@ public abstract class ZulipRestAPICall implements Callable {
 
 		try {
 			HttpResponse response = this.httpController.getClient().execute(base);
+			br = new BufferedReader(new InputStreamReader((response.getEntity().getContent())));
+			String output;
+
+			while ((output = br.readLine()) != null) {
+				builder.append(output);
+			}
 
 			if (response.getStatusLine().getStatusCode() == HttpStatus.SC_UNAUTHORIZED) {
 				throw new NotAuthroizedException(
 						"Unauthroized request. Please check server settings and your provided credentials :"
-								+ response.getStatusLine());
+								+ builder.toString());
 			}
 
-			BufferedReader br = new BufferedReader(new InputStreamReader((response.getEntity().getContent())));
+			if (response.getStatusLine().getStatusCode() == HttpStatus.SC_BAD_REQUEST) {
 
-			String output;
-			while ((output = br.readLine()) != null) {
-				builder.append(output);
+				throw new BadRequestException(
+						"Bad request. The server could not process your request sucessfully: " + builder.toString());
 			}
 
 		} catch (ClientProtocolException e) {
@@ -122,6 +143,8 @@ public abstract class ZulipRestAPICall implements Callable {
 		} catch (IOException e) {
 			e.printStackTrace();
 		} catch (NotAuthroizedException e) {
+			e.printStackTrace();
+		} catch (BadRequestException e) {
 			e.printStackTrace();
 		}
 
@@ -131,9 +154,12 @@ public abstract class ZulipRestAPICall implements Callable {
 	/**
 	 * Handle HTTP upload.
 	 *
-	 * @param file The file which is supposed to be upoaded.
-	 * @param post The HTTP post object which is used for the upload.
-	 * @return The response String of the server after receiving and handling the request.
+	 * @param file
+	 *            The file which is supposed to be upoaded.
+	 * @param post
+	 *            The HTTP post object which is used for the upload.
+	 * @return The response String of the server after receiving and handling the
+	 *         request.
 	 */
 	private String handleHttpUpload(File file, HttpPost post) {
 		HttpClient client = getHttpController().getClient();
@@ -183,7 +209,8 @@ public abstract class ZulipRestAPICall implements Callable {
 	/**
 	 * Sets the http controller.
 	 *
-	 * @param httpController the new http controller
+	 * @param httpController
+	 *            the new http controller
 	 */
 	public void setHttpController(HttpController httpController) {
 		this.httpController = httpController;
@@ -201,7 +228,8 @@ public abstract class ZulipRestAPICall implements Callable {
 	/**
 	 * Sets the zulip API url.
 	 *
-	 * @param zulipAPIUrl the new zulip API url
+	 * @param zulipAPIUrl
+	 *            the new zulip API url
 	 */
 	public void setZulipAPIUrl(String zulipAPIUrl) {
 		this.zulipAPIUrl = zulipAPIUrl;
@@ -219,7 +247,8 @@ public abstract class ZulipRestAPICall implements Callable {
 	/**
 	 * Sets the parameters.
 	 *
-	 * @param parameters the parameters
+	 * @param parameters
+	 *            the parameters
 	 */
 	public void setParameters(HashMap<String, String> parameters) {
 		this.parameters = parameters;
