@@ -6,8 +6,8 @@
 
 	<groupId>io.taliox</groupId>
 	<artifactId>zulip-java-rest</artifactId>
-	<version>0.0.2</version>
-	<inceptionYear>2016</inceptionYear>
+	<version>0.0.1-SNAPSHOT</version>
+	<inceptionYear>2019</inceptionYear>
 
 	<parent>
 		<groupId>org.sonatype.oss</groupId>
@@ -172,7 +172,7 @@
 		<url>https://github.com/taliox/zulip-java-rest</url>
 		<connection>scm:git:git://github.com/taliox/zulip-java-rest.git</connection>
 		<developerConnection>scm:git:git@github.com:taliox/taliox.git</developerConnection>
-		<tag>0.0.02</tag>
+		<tag>HEAD</tag>
 	</scm>
 
 	<licenses>
