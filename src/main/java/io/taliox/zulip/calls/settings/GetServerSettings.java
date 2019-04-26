@@ -10,8 +10,12 @@ import io.taliox.zulip.calls.ZulipRestAPICall;
  * Fetch global settings for a Zulip server.
  * 
  * <b>Note:</b> this endpoint does not require any authentication at all, and
- * you can use it to check: • If this is a Zulip server, and if so, what version
- * of Zulip it's running. • What a Zulip client (e.g. a mobile app or
+ * you can use it to check: 
+ * 
+ * - If this is a Zulip server, and if so, what version
+ * of Zulip it's running. 
+ * 
+ * - What a Zulip client (e.g. a mobile app or
  * zulip-terminal) needs to know in order to display a login prompt for the
  * server (e.g. what authentication methods are available).
  * 
