@@ -28,7 +28,7 @@ To change credentials after instantiating the ZulipRestExecutor it is recommende
 ### How to use the ZulipRestExecutor?
 To perform an API call you should use the `executeCall(ZulipRestAPICall call)` method of the newly created object.
 All API calls are packed inside the library as instantiatable objects which be executed by the `ZulipRestExecutor`.
-The naming convention of all call objects is like the following: `HTTP request mehtod + object of action`.
+The naming convention of all call objects is like the following: `HTTP request method + object of action`.
 
 So for instance if we want to send a message to someone on our Zulip server we need to create a `PostMessage` object to pass it into our executeCall method.
 
