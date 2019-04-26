@@ -34,7 +34,7 @@ So for instance if we want to send a message to someone on our Zulip server we n
 
 ```java
 PostMessage postMessage = new PostMessage("anotheruser@zulip.com", "Hello world");
-String response = executor.executeCall(ZulipRestAPICall call)
+String response = executor.executeCall(postMessage)
 ```
 
 executeCall always returns the answer from the Zulip server for instance whether the call was successful or not.
