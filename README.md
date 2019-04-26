@@ -8,9 +8,9 @@ Just add the following dependency to your pom.xml or the JAR of this repository 
 
 ```xml
 <dependency>
-	<groupId>io.taliox</groupId>
-	<artifactId>zulip-java-rest</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+  <groupId>io.taliox</groupId>
+  <artifactId>zulip-java-rest</artifactId>
+  <version>0.0.2</version>
 </dependency>
 ```
 ### Where do I get the API key for authentication?
