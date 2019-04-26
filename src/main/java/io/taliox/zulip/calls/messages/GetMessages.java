@@ -21,7 +21,7 @@ import io.taliox.zulip.calls.ZulipRestAPICall;
  * message ID, as well as some metadata that makes it easy for a client to
  * determine whether there are more messages matching the query that were not
  * returned due to the num_before and num_after limits. We recommend using
- * num_before <= 1000 and num_after <= 1000 to avoid generating very large HTTP
+ * num_before smaller or even 1000 and num_after smaller or even 1000 to avoid generating very large HTTP
  * responses. A maximum of 5000 messages can be obtained per request; attempting
  * to exceed this will result in an error.
  * 

@@ -13,7 +13,7 @@ import io.taliox.zulip.calls.ZulipRestAPICall;
  * and configured using the invite_only setting specified in the arguments.
  * 
  * @see <a href=
- *      https://zulipchat.com/api/add-subscriptions">https://zulipchat.com/api/add-subscriptions</a>
+ *      "https://zulipchat.com/api/add-subscriptions">https://zulipchat.com/api/add-subscriptions</a>
  */
 public class PostSubscription extends ZulipRestAPICall {
 

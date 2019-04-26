@@ -16,8 +16,7 @@ public abstract class ImageChecker {
 	 *
 	 * @param path
 	 *            The path of the image to be uploaded.
-	 * @return true, if file is an image.
-	 * @return false, if file is not an image.
+	 * @return true, if file is an image. false, if file is not an image.
 	 */
 	public static boolean checkIfFileIsAnImage(String path) {
 		boolean b = false;
@@ -35,8 +34,7 @@ public abstract class ImageChecker {
 	 *
 	 * @param file
 	 *            The File to be uploaded.
-	 * @return true, if file is an image.
-	 * @return false, if file is not an image.
+	 * @return true, if file is an image. false, if file is not an image. 
 	 */
 	public static boolean checkIfFileIsAnImage(File file) {
 		boolean b = false;
