@@ -1,6 +1,7 @@
 package io.taliox.zulip;
 
 import io.taliox.zulip.calls.ZulipRestAPICall;
+import io.taliox.zulip.calls.users.GetProfile;
 import io.taliox.zulip.controller.HttpController;
 
 /**
@@ -37,5 +38,5 @@ public class ZulipRestExecutor {
 	public String executeCall(ZulipRestAPICall call) {
 		return call.execute(this);
 	}
-
+	
 }

@@ -138,6 +138,8 @@ public abstract class ZulipRestAPICall implements Callable {
 						"Bad request. The server could not process your request sucessfully: " + builder.toString());
 			}
 
+		base.releaseConnection();	
+			
 		} catch (ClientProtocolException e) {
 			e.printStackTrace();
 		} catch (IOException e) {
