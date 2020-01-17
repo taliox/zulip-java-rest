@@ -117,7 +117,7 @@ We are working on more examples and tests within the library so you can try it o
 ## Contributing
 Thanks for your interest! Do not hesitate to open an issue if you have a question, feedback or found something that is not working like it should.
 
-Pull requests for improvements of the library or it's documentation are also highly appriciated.
+Pull requests for improvements of the library or it's documentation are also highly appreciated.
 
 ## Licenses
 This library and its content is released under the [MIT License](https://choosealicense.com/licenses/mit/).
