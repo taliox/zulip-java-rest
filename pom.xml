@@ -4,7 +4,7 @@
 
 	<groupId>io.taliox</groupId>
 	<artifactId>zulip-java-rest</artifactId>
-	<version>1.0.0-SNAPSHOT</version>
+	<version>1.0.0</version>
 	<inceptionYear>2019</inceptionYear>
 
 	<parent>
@@ -170,7 +170,7 @@
 		<url>https://github.com/taliox/zulip-java-rest</url>
 		<connection>scm:git:git://github.com/taliox/zulip-java-rest.git</connection>
 		<developerConnection>scm:git:git@github.com:taliox/taliox.git</developerConnection>
-		<tag>HEAD</tag>
+		<tag>zulip-java-rest-1.0.0</tag>
 	</scm>
 
 	<licenses>
