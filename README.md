@@ -14,7 +14,7 @@ Just add the following dependency to your pom.xml.
 <dependency>
   <groupId>io.taliox</groupId>
   <artifactId>zulip-java-rest</artifactId>
-  <version>0.0.2</version>
+  <version>1.0.0</version>
 </dependency>
 ```
 ### Where do I get the API key for authentication?
