@@ -112,8 +112,6 @@ String response = executor.executeCall(patchMessage);
 Please always refer to the [official Zulip API documentation](https://zulipchat.com/api/) in case you are not sure what structure the parameters of an call object need to be.
 A full list of API calls, return types and parameters to perform calls can be found over there.
 
-We are working on more examples and tests within the library so you can try it out right of the box.
-
 ## Contributing
 Thanks for your interest! Do not hesitate to open an issue if you have a question, feedback or found something that is not working like it should.
 
