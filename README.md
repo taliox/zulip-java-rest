@@ -24,7 +24,7 @@ You can either use a bot or a user account to communicate with the API. To find 
 The core of this library is the `ZulipRestExecutor` it is responsible for performing HTTP calls.
 
 ```java
-ZulipRestExecutor  = new ZulipRestExecutor("user@zulip.com", "apikey","https://zulip.example.com/");
+ZulipRestExecutor exectuor  = new ZulipRestExecutor("user@zulip.com", "apikey","https://zulip.example.com/");
 ```
 
 To change credentials after instantiating the ZulipRestExecutor it is recommended to create a new object for the moment.
